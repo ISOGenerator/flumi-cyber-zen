@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MessageCircle, Send, Bot, Shield, Paperclip, ArrowRight, FileCheck, Users, Gavel } from "lucide-react";
 import { useState, useEffect } from "react";
+import FlumiAvatar from "@/components/FlumiAvatar";
 const Hero = () => {
   const questions = ["Wat zijn de GDPR compliance vereisten voor mijn bedrijf?", "Hoe implementeer ik ISO 27001 in mijn organisatie?", "Kun je mijn data breach response plan controleren?", "Welke NIS2-richtlijnen moet ik naleven?", "Hoe voer ik een cybersecurity audit uit?", "Wat zijn de nieuwe EU AI Act vereisten?", "Help me met DORA compliance voor financiële diensten", "Analyseer dit cybersecurity document voor risico's"];
   const expertTypes = ["consultant", "auditor", "specialist"];
@@ -58,12 +59,16 @@ const Hero = () => {
                 🛡️ EU Cybersecurity Expert
               </Badge>
               
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                Ontmoet{" "}
-                <span className="bg-gradient-primary bg-clip-text text-transparent">
-                  Flumi
-                </span>
-              </h1>
+              <div className="flex flex-col items-center space-y-6">
+                <FlumiAvatar size="xl" variant="hero" className="animate-float" />
+                
+                <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+                  Ontmoet{" "}
+                  <span className="bg-gradient-primary bg-clip-text text-transparent">
+                    Flumi
+                  </span>
+                </h1>
+              </div>
 
               <div className="text-xl lg:text-2xl text-muted-foreground leading-tight">
                 Jouw persoonlijke cybersecurity{" "}
@@ -105,9 +110,7 @@ const Hero = () => {
                     <div className="w-3 h-3 bg-green-400 rounded-full"></div>
                   </div>
                   <div className="text-sm font-medium text-foreground">Flumi - EU Cybersecurity Specialist</div>
-                  <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center shadow-colored">
-                    <Shield className="w-4 h-4 text-white" />
-                  </div>
+                  <FlumiAvatar size="sm" variant="chat" />
                 </div>
 
                 {/* Chat Content Area */}
@@ -125,7 +128,7 @@ const Hero = () => {
                     background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent))) border-box'
                   }} readOnly />
                     <div className="absolute left-5 top-1/2 transform -translate-y-1/2">
-                      <Shield className="h-6 w-6 text-primary" />
+                      <FlumiAvatar size="sm" />
                     </div>
                     <div className="absolute right-5 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
                       <button className="h-8 w-8 flex items-center justify-center hover:bg-white/10 rounded-lg transition-colors">
