@@ -42,9 +42,18 @@ const Navigation = () => {
             <Link to="/" className={`transition-colors text-sm font-medium ${location.pathname === '/' ? 'text-primary' : 'text-muted-foreground hover:text-primary'}`}>
               Home
             </Link>
-            <Link to="/chat" className={`transition-colors text-sm font-medium ${location.pathname === '/chat' ? 'text-primary' : 'text-muted-foreground hover:text-primary'}`}>
-              Chat
-            </Link>
+            {user ? (
+              <Link to="/chat" className={`transition-colors text-sm font-medium ${location.pathname === '/chat' ? 'text-primary' : 'text-muted-foreground hover:text-primary'}`}>
+                Chat
+              </Link>
+            ) : (
+              <button 
+                onClick={() => window.location.href = '/auth'}
+                className="transition-colors text-sm font-medium text-muted-foreground hover:text-primary"
+              >
+                Chat
+              </button>
+            )}
             <a href="#features" className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium">
               Features
             </a>
@@ -78,7 +87,7 @@ const Navigation = () => {
                   <Link to="/auth">Inloggen</Link>
                 </Button>
                 <Button asChild className="bg-gradient-primary text-primary-foreground hover:shadow-colored-hover text-sm px-6 shadow-colored transition-all">
-                  <Link to="/auth">Registreren</Link>
+                  <Link to="/auth">Start nu</Link>
                 </Button>
               </>
             )}
