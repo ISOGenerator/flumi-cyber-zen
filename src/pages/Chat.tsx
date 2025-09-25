@@ -13,7 +13,11 @@ import {
   ChevronDown,
   Send,
   Mic,
-  Menu
+  Menu,
+  Slash,
+  Folder,
+  Paperclip,
+  ChevronRight
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -24,7 +28,8 @@ interface AgentCard {
   title: string;
   description: string;
   icon: React.ComponentType<any>;
-  accent: string;
+  iconColor: string;
+  iconBg: string;
 }
 
 const agentCards: AgentCard[] = [
@@ -33,28 +38,32 @@ const agentCards: AgentCard[] = [
     title: "ISO 27001 Auditor",
     description: "Hulp bij audit voorbereiding en compliance verificatie voor ISO 27001 certificering.",
     icon: Shield,
-    accent: "bg-blue-50 border-blue-200"
+    iconColor: "text-white",
+    iconBg: "bg-blue-500"
   },
   {
     id: "consultant",
     title: "Security Consultant", 
     description: "Strategisch advies voor cybersecurity implementatie en beleid ontwikkeling.",
     icon: Lightbulb,
-    accent: "bg-purple-50 border-purple-200"
+    iconColor: "text-white",
+    iconBg: "bg-red-500"
   },
   {
     id: "standards",
     title: "Standards Specialist",
     description: "Expertise in cybersecurity standaarden zoals ISO 27001, NIS2 en GDPR compliance.",
     icon: FileText,
-    accent: "bg-green-50 border-green-200"
+    iconColor: "text-white",
+    iconBg: "bg-purple-500"
   },
   {
     id: "implementer",
     title: "Security Implementer",
     description: "Praktische implementatie van security controls en technische beveiligingsmaatregelen.",
     icon: Cog,
-    accent: "bg-orange-50 border-orange-200"
+    iconColor: "text-white",
+    iconBg: "bg-orange-500"
   }
 ];
 
@@ -67,7 +76,7 @@ const Chat = () => {
   };
 
   return (
-    <div className="flex h-screen bg-white">
+    <div className="flex h-screen bg-gray-50">
       {/* Left Sidebar */}
       <div className={`${sidebarOpen ? 'w-60' : 'w-16'} transition-all duration-300 bg-white border-r border-gray-200 flex flex-col`}>
         {/* Sidebar Header */}
@@ -139,7 +148,7 @@ const Chat = () => {
       </div>
 
       {/* Main Chat Area */}
-      <div className="flex-1 flex flex-col bg-white">
+      <div className="flex-1 flex flex-col bg-gray-50">
         {/* Header */}
         <header className="border-b border-gray-200 bg-white px-6 py-4">
           <div className="flex items-center justify-between">
@@ -160,67 +169,105 @@ const Chat = () => {
         </header>
 
         {/* Main Content */}
-        <main className="flex-1 flex flex-col">
+        <main className="flex-1 flex flex-col overflow-hidden">
           {/* Welcome Area */}
-          <div className="flex-1 flex flex-col items-center justify-center px-6 py-12">
-            <div className="text-center mb-12">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Shield className="h-8 w-8 text-blue-600" />
+          <div className="flex-1 flex flex-col px-6 py-8 overflow-y-auto">
+            <div className="max-w-4xl mx-auto w-full">
+              <div className="text-center mb-12">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Shield className="h-8 w-8 text-blue-600" />
+                </div>
+                <h1 className="text-3xl font-bold text-gray-900 mb-2">Hey, I'm Flumi.</h1>
+                <p className="text-lg text-gray-600">How can I help you today?</p>
               </div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">Hey, I'm Flumi.</h1>
-              <p className="text-lg text-gray-600">How can I help you today?</p>
-            </div>
 
-            {/* AI Agent Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl w-full mb-12">
-              {agentCards.map((agent) => {
-                const IconComponent = agent.icon;
-                return (
-                  <Card
-                    key={agent.id}
-                    className={`cursor-pointer transition-all duration-200 hover:shadow-md border ${agent.accent} ${
-                      selectedAgent === agent.id ? 'ring-2 ring-blue-500' : ''
-                    }`}
-                    onClick={() => handleAgentSelect(agent.id)}
-                  >
-                    <CardContent className="p-6">
-                      <div className="flex items-start space-x-4">
-                        <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center shadow-sm">
-                          <IconComponent className="h-5 w-5 text-gray-700" />
+              {/* Agent Cards Section Header */}
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-lg font-medium text-gray-900">Your AI agents</h2>
+                <button className="flex items-center text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors">
+                  All agents
+                  <ChevronRight className="h-4 w-4 ml-1" />
+                </button>
+              </div>
+
+              {/* AI Agent Cards Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+                {agentCards.map((agent) => {
+                  const IconComponent = agent.icon;
+                  return (
+                    <Card
+                      key={agent.id}
+                      className={`cursor-pointer transition-all duration-200 hover:shadow-md bg-white border border-gray-200 hover:border-gray-300 ${
+                        selectedAgent === agent.id ? 'ring-2 ring-blue-500' : ''
+                      }`}
+                      onClick={() => handleAgentSelect(agent.id)}
+                    >
+                      <CardContent className="p-6">
+                        <div className="flex items-start space-x-4">
+                          <div className={`w-10 h-10 rounded-full ${agent.iconBg} flex items-center justify-center flex-shrink-0`}>
+                            <IconComponent className={`h-5 w-5 ${agent.iconColor}`} />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h3 className="font-semibold text-gray-900 mb-2">{agent.title}</h3>
+                            <p className="text-sm text-gray-600 leading-relaxed">{agent.description}</p>
+                          </div>
                         </div>
-                        <div className="flex-1">
-                          <h3 className="font-semibold text-gray-900 mb-2">{agent.title}</h3>
-                          <p className="text-sm text-gray-600 leading-relaxed">{agent.description}</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                );
-              })}
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+              </div>
             </div>
           </div>
 
           {/* Bottom Input Area */}
-          <div className="border-t border-gray-200 bg-white px-6 py-4">
+          <div className="bg-white border-t border-gray-200 px-6 py-6">
             <div className="max-w-4xl mx-auto">
-              <div className="relative">
+              <div className="relative mb-4">
+                <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
+                  <Slash className="h-4 w-4 text-gray-400" />
+                </div>
                 <Input
                   placeholder="How can I help you today"
-                  className="pr-20 py-3 text-base bg-white border-gray-200 focus:border-gray-300 rounded-xl"
+                  className="pl-12 pr-20 py-4 text-base bg-white border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 rounded-xl shadow-sm"
                 />
-                <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
+                <div className="absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
                   <Button
                     size="sm"
                     variant="ghost"
-                    className="h-8 w-8 p-0 hover:bg-gray-100"
+                    className="h-8 w-8 p-0 hover:bg-gray-100 rounded-full"
                   >
                     <Mic className="h-4 w-4 text-gray-500" />
                   </Button>
                   <Button
                     size="sm"
-                    className="h-8 w-8 p-0 bg-blue-600 hover:bg-blue-700"
+                    className="h-8 w-8 p-0 bg-blue-600 hover:bg-blue-700 rounded-full"
                   >
                     <Send className="h-4 w-4 text-white" />
+                  </Button>
+                </div>
+              </div>
+              
+              {/* Bottom Controls */}
+              <div className="flex items-center justify-between text-sm">
+                <div className="flex items-center space-x-1 text-gray-600">
+                  <Folder className="h-4 w-4" />
+                  <span>My Prompts</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    className="h-8 w-8 p-0 hover:bg-gray-100 rounded-full"
+                  >
+                    <Menu className="h-4 w-4 text-gray-500" />
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    className="h-8 w-8 p-0 hover:bg-gray-100 rounded-full"
+                  >
+                    <Paperclip className="h-4 w-4 text-gray-500" />
                   </Button>
                 </div>
               </div>
