@@ -1,25 +1,26 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { 
-  Shield, 
-  Globe, 
-  Brain, 
-  Building2, 
-  ArrowRight,
-  CheckCircle
-} from "lucide-react";
-
+import { Shield, Globe, Brain, Building2, ArrowRight, CheckCircle } from "lucide-react";
 const EURegulations = () => {
-  const regulations = [
-    { name: "GDPR", status: "Actief", color: "text-green-600" },
-    { name: "NIS2", status: "2024", color: "text-orange-600" },
-    { name: "AI Act", status: "2025-2027", color: "text-purple-600" },
-    { name: "DORA", status: "Jan 2025", color: "text-cyan-600" }
-  ];
-
-  return (
-    <section className="py-16 relative bg-white">
+  const regulations = [{
+    name: "GDPR",
+    status: "Actief",
+    color: "text-green-600"
+  }, {
+    name: "NIS2",
+    status: "2024",
+    color: "text-orange-600"
+  }, {
+    name: "AI Act",
+    status: "2025-2027",
+    color: "text-purple-600"
+  }, {
+    name: "DORA",
+    status: "Jan 2025",
+    color: "text-cyan-600"
+  }];
+  return <section className="py-16 relative bg-white">
       {/* Subtle background elements */}
       <div className="absolute inset-0 opacity-3">
         <div className="absolute top-0 right-0 w-72 h-72 bg-accent/4 rounded-full blur-3xl"></div>
@@ -42,12 +43,10 @@ const EURegulations = () => {
               </div>
               
               <div className="grid grid-cols-2 gap-4">
-                {regulations.map((reg, index) => (
-                  <div key={index} className="bg-gray-50/50 p-3 rounded-xl text-center hover:scale-105 transition-transform hover:shadow-soft">
+                {regulations.map((reg, index) => <div key={index} className="bg-gray-50/50 p-3 rounded-xl text-center hover:scale-105 transition-transform hover:shadow-soft">
                     <div className="font-semibold text-foreground">{reg.name}</div>
                     <div className={`text-sm ${reg.color}`}>{reg.status}</div>
-                  </div>
-                ))}
+                  </div>)}
               </div>
               
               <div className="mt-6 text-center">
@@ -60,7 +59,9 @@ const EURegulations = () => {
             
             {/* Floating elements */}
             <div className="absolute -top-4 -right-4 w-12 h-12 bg-primary/5 rounded-full blur-xl animate-float"></div>
-            <div className="absolute -bottom-4 -left-4 w-10 h-10 bg-accent/5 rounded-full blur-lg animate-float" style={{animationDelay: '2s'}}></div>
+            <div className="absolute -bottom-4 -left-4 w-10 h-10 bg-accent/5 rounded-full blur-lg animate-float" style={{
+            animationDelay: '2s'
+          }}></div>
           </div>
 
           {/* Text Right */}
@@ -97,15 +98,10 @@ const EURegulations = () => {
               </div>
             </div>
 
-            <Button size="lg" className="bg-gradient-primary hover:shadow-colored-hover shadow-colored">
-              Ontdek EU Compliance
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
+            
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default EURegulations;

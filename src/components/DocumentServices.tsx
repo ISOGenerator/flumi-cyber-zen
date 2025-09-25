@@ -1,26 +1,22 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { 
-  FileText, 
-  Search, 
-  CheckCircle, 
-  Upload, 
-  Eye,
-  ArrowRight,
-  Zap
-} from "lucide-react";
-
+import { FileText, Search, CheckCircle, Upload, Eye, ArrowRight, Zap } from "lucide-react";
 const DocumentServices = () => {
-  const features = [
-    { icon: Search, text: "AI Gap Analysis" },
-    { icon: CheckCircle, text: "Compliance Check" },
-    { icon: Eye, text: "Risk Assessment" },
-    { icon: Zap, text: "Instant Results" }
-  ];
-
-  return (
-    <section className="py-16 relative bg-white">
+  const features = [{
+    icon: Search,
+    text: "AI Gap Analysis"
+  }, {
+    icon: CheckCircle,
+    text: "Compliance Check"
+  }, {
+    icon: Eye,
+    text: "Risk Assessment"
+  }, {
+    icon: Zap,
+    text: "Instant Results"
+  }];
+  return <section className="py-16 relative bg-white">
       {/* Subtle background elements */}
       <div className="absolute inset-0 opacity-3">
         <div className="absolute top-0 left-0 w-80 h-80 bg-cyan/4 rounded-full blur-3xl"></div>
@@ -50,22 +46,17 @@ const DocumentServices = () => {
 
             <div className="grid grid-cols-2 gap-4">
               {features.map((feature, index) => {
-                const IconComponent = feature.icon;
-                return (
-                  <div key={index} className="flex items-center space-x-3">
+              const IconComponent = feature.icon;
+              return <div key={index} className="flex items-center space-x-3">
                     <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center shadow-soft">
                       <IconComponent className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-foreground font-medium">{feature.text}</span>
-                  </div>
-                );
-              })}
+                  </div>;
+            })}
             </div>
 
-            <Button size="lg" className="bg-gradient-primary hover:shadow-colored-hover shadow-colored">
-              Upload Document
-              <Upload className="w-5 h-5 ml-2" />
-            </Button>
+            
           </div>
 
           {/* Animation/Visual Right */}
@@ -106,12 +97,12 @@ const DocumentServices = () => {
             
             {/* Floating elements */}
             <div className="absolute -top-4 -left-4 w-12 h-12 bg-accent/5 rounded-full blur-xl animate-float"></div>
-            <div className="absolute -bottom-4 -right-4 w-10 h-10 bg-primary/5 rounded-full blur-lg animate-float" style={{animationDelay: '2s'}}></div>
+            <div className="absolute -bottom-4 -right-4 w-10 h-10 bg-primary/5 rounded-full blur-lg animate-float" style={{
+            animationDelay: '2s'
+          }}></div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default DocumentServices;
