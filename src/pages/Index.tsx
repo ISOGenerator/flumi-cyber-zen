@@ -6,7 +6,6 @@ import DocumentServices from "@/components/DocumentServices";
 import Features from "@/components/Features";
 import ProductShowcase from "@/components/ProductShowcase";
 import Pricing from "@/components/Pricing";
-import Integrations from "@/components/Integrations";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
@@ -21,7 +20,6 @@ const Index = () => {
       <Features />
       <ProductShowcase />
       <Pricing />
-      <Integrations />
       <CTA />
       <Footer />
     </div>
