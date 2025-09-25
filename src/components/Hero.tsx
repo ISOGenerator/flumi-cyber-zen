@@ -46,7 +46,7 @@ const Hero = () => {
   }, [currentText, currentQuestionIndex, isTyping, charIndex, questions]);
 
   return (
-    <section className="pt-20 pb-20 relative overflow-hidden bg-white">
+    <section className="pt-32 pb-20 relative overflow-hidden bg-white">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-3">
         <div className="absolute top-20 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
