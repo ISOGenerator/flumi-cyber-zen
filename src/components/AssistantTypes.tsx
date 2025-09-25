@@ -12,33 +12,33 @@ import {
 const AssistantTypes = () => {
   const assistants = [
     {
-      title: "GDPR Consultant",
-      description: "Specialistische hulp bij AVG/GDPR implementatie, privacy impact assessments en dataprotectie procedures.",
-      icon: Shield,
+      title: "Standaard Assistant",
+      description: "Algemene cybersecurity expertise voor alle vraagstukken en EU regelgeving compliance.",
+      icon: Users,
       gradient: "from-primary to-accent",
-      features: ["Privacy Impact Assessments", "Dataprotectie procedures", "Rechten van betrokkenen", "Internationale transfers"],
+      features: ["Multi-domain expertise", "EU regelgeving kennis", "Risk assessments", "Compliance roadmaps"],
       popular: true
     },
     {
-      title: "ISO 27001 Consultant", 
-      description: "Uitgebreide begeleiding bij ISO 27001 implementatie, certificering en auditvoorbereiding.",
+      title: "Consultant", 
+      description: "Strategische begeleiding bij cybersecurity transformatie en compliance implementatie.",
       icon: CheckCircle,
       gradient: "from-accent to-cyan",
-      features: ["ISMS implementatie", "Risico assessments", "Auditvoorbereiding", "Controlemaatregelen"]
+      features: ["Strategic planning", "Implementation guidance", "Best practices", "Change management"]
     },
     {
-      title: "NIS2 Consultant",
-      description: "Complete ondersteuning voor NIS2-richtlijn compliance, incidentrapportage en cybersecurity governance.",
+      title: "Auditor",
+      description: "Fictieve audits en compliance assessments ter voorbereiding op echte controles.",
       icon: Gavel,
       gradient: "from-cyan to-primary",
-      features: ["Incidentrapportage procedures", "Cybersecurity governance", "Supply chain security", "Risicobeheer"]
+      features: ["Mock audits", "Compliance testing", "Gap analysis", "Remediation planning"]
     },
     {
-      title: "Algemene Consultant",
-      description: "Brede cybersecurity expertise voor alle compliance vraagstukken en EU regelgeving.",
-      icon: Users,
+      title: "Specialist",
+      description: "Diepgaande technische expertise voor specifieke cybersecurity domeinen.",
+      icon: Shield,
       gradient: "from-purple-500 to-primary",
-      features: ["Multi-domain expertise", "EU regelgeving kennis", "Risk assessments", "Compliance roadmaps"]
+      features: ["Technical expertise", "Specialized knowledge", "Deep analysis", "Solution design"]
     }
   ];
 
@@ -131,10 +131,10 @@ const AssistantTypes = () => {
         <div className="text-center">
           <div className="glass p-8 rounded-3xl border border-white/20 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold mb-4 text-foreground">
-              Weet je niet welke consultant je nodig hebt?
+              Weet je niet welke expert je nodig hebt?
             </h3>
             <p className="text-muted-foreground mb-6 text-lg">
-              Start een algemene chat en Flumi helpt je de juiste specialist te vinden voor je specifieke vraag.
+              Start een algemene chat en Flumi helpt je de juiste expert te vinden voor je specifieke vraag.
             </p>
             <Button size="lg" className="bg-gradient-primary hover:shadow-colored-hover shadow-colored">
               Start Algemene Chat
