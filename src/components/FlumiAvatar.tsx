@@ -24,6 +24,15 @@ const FlumiAvatar = ({
     "rounded-full overflow-hidden bg-gradient-primary shadow-colored": variant === "chat",
     "hover:scale-105 hover:drop-shadow-lg": variant === "hero"
   }, sizeClasses[size], className);
-  return;
+  
+  return (
+    <div className={avatarClasses}>
+      <img 
+        src={flumiAvatar} 
+        alt="Flumi Avatar" 
+        className="w-full h-full object-contain"
+      />
+    </div>
+  );
 };
 export default FlumiAvatar;
