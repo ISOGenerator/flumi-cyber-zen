@@ -115,7 +115,10 @@ const Hero = () => {
           
           {/* Chat Interface Mockup */}
           <div className="relative max-w-3xl w-full mt-16">
-            <div className="relative transform rotate-1 hover:rotate-0 transition-transform duration-500">
+            {/* Background behind chat interface */}
+            <div className="absolute inset-0 -m-8 bg-gradient-to-br from-primary/3 to-accent/2 rounded-3xl blur-xl"></div>
+            
+            <div className="relative transform rotate-1 hover:rotate-0 transition-transform duration-500 z-10">
               <div className="glass rounded-3xl shadow-large overflow-hidden border border-white/20 backdrop-blur-2xl">
                 {/* macOS Window Header */}
                 <div className="flex items-center justify-between p-5 border-b border-white/10 bg-gradient-to-r from-white/5 to-white/10">

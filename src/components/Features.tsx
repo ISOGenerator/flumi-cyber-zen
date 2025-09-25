@@ -66,10 +66,16 @@ const Features = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <Card 
-              key={index} 
-              className="group relative bg-white/80 backdrop-blur-sm border border-gray-100 shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1"
-            >
+            <div key={index} className="relative">
+              {/* Background behind each feature card */}
+              <div className={`absolute inset-0 -m-3 rounded-2xl blur-lg opacity-40 ${
+                index % 3 === 0 ? 'bg-primary/3' :
+                index % 3 === 1 ? 'bg-accent/3' : 'bg-cyan/3'
+              }`}></div>
+              
+              <Card 
+                className="group relative bg-white/80 backdrop-blur-sm border border-gray-100 shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1 z-10"
+              >
               <CardHeader className="space-y-4">
                 <div className={`w-12 h-12 rounded-xl ${feature.gradient} flex items-center justify-center shadow-colored group-hover:scale-110 transition-transform`}>
                   <feature.icon className="w-6 h-6 text-white" />
@@ -79,7 +85,8 @@ const Features = () => {
               <CardContent>
                 <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
               </CardContent>
-            </Card>
+              </Card>
+            </div>
           ))}
         </div>
       </div>

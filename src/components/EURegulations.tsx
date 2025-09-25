@@ -30,7 +30,10 @@ const EURegulations = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Animation/Visual Left */}
           <div className="relative">
-            <div className="glass p-8 rounded-3xl border border-gray-100 shadow-soft">
+            {/* Background section behind visual */}
+            <div className="absolute inset-0 -m-6 bg-gradient-to-br from-primary/4 to-accent/3 rounded-3xl blur-xl opacity-60"></div>
+            
+            <div className="glass p-8 rounded-3xl border border-gray-100 shadow-soft relative z-10">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 shadow-soft">
                   <Shield className="w-8 h-8 text-white" />

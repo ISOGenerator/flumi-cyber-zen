@@ -72,7 +72,15 @@ const AssistantTypes = () => {
           {assistants.map((assistant, index) => {
             const IconComponent = assistant.icon;
             return (
-              <Card key={index} className="relative p-6 glass hover-lift group cursor-pointer border-white/20">
+              <div key={index} className="relative">
+                {/* Background behind each card */}
+                <div className={`absolute inset-0 -m-2 rounded-3xl blur-lg opacity-30 ${
+                  index % 4 === 0 ? 'bg-primary/4' :
+                  index % 4 === 1 ? 'bg-accent/4' :
+                  index % 4 === 2 ? 'bg-cyan/4' : 'bg-primary/3'
+                }`}></div>
+                
+                <Card className="relative p-6 glass hover-lift group cursor-pointer border-white/20 z-10">
                 {assistant.popular && (
                   <Badge className="absolute -top-3 right-4 bg-gradient-primary text-white border-0 shadow-colored">
                     Populair
@@ -111,7 +119,8 @@ const AssistantTypes = () => {
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </div>
-              </Card>
+                </Card>
+              </div>
             );
           })}
         </div>

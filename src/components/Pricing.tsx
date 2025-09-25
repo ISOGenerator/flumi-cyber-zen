@@ -95,14 +95,21 @@ const Pricing = () => {
           {plans.map((plan, index) => {
             const IconComponent = plan.icon;
             return (
-              <Card 
-                key={index} 
-                className={`relative overflow-hidden border-0 hover-lift ${
+              <div key={index} className="relative">
+                {/* Background behind pricing cards */}
+                <div className={`absolute inset-0 -m-4 rounded-3xl blur-xl opacity-50 ${
                   plan.highlighted 
-                    ? 'glass-strong shadow-glow scale-105' 
-                    : 'glass shadow-medium'
-                } rounded-3xl`}
-              >
+                    ? 'bg-gradient-to-br from-primary/5 to-accent/4' 
+                    : index % 2 === 0 ? 'bg-primary/3' : 'bg-accent/3'
+                }`}></div>
+                
+                <Card 
+                  className={`relative overflow-hidden border-0 hover-lift z-10 ${
+                    plan.highlighted 
+                      ? 'glass-strong shadow-glow scale-105' 
+                      : 'glass shadow-medium'
+                  } rounded-3xl`}
+                >
                 {plan.highlighted && (
                   <div className="absolute inset-0 bg-gradient-primary opacity-5 rounded-3xl"></div>
                 )}
@@ -156,6 +163,7 @@ const Pricing = () => {
                   </div>
                 </CardContent>
               </Card>
+              </div>
             );
           })}
         </div>

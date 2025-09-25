@@ -70,7 +70,10 @@ const DocumentServices = () => {
 
           {/* Animation/Visual Right */}
           <div className="relative">
-            <div className="bg-gray-50/50 p-8 rounded-3xl border border-gray-100 shadow-soft">
+            {/* Background section behind document processor */}
+            <div className="absolute inset-0 -m-6 bg-gradient-to-bl from-cyan/4 to-primary/3 rounded-3xl blur-xl opacity-60"></div>
+            
+            <div className="bg-gray-50/50 p-8 rounded-3xl border border-gray-100 shadow-soft relative z-10">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-gradient-secondary rounded-full flex items-center justify-center mx-auto mb-4 shadow-soft">
                   <FileText className="w-8 h-8 text-white" />
