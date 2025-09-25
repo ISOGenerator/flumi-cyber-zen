@@ -4,36 +4,37 @@ import { ArrowRight, Sparkles } from "lucide-react";
 
 const CTA = () => {
   return (
-    <section className="py-24">
+    <section className="py-24 bg-background">
       <div className="container mx-auto px-6">
-        <Card className="relative overflow-hidden bg-gradient-primary shadow-large border-0">
-          <div className="absolute inset-0 opacity-30">
-            <div className="w-full h-full bg-white/5 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%23ffffff%22 fill-opacity=%220.1%22%3E%3Ccircle cx=%2230%22 cy=%2230%22 r=%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+        <Card className="relative overflow-hidden bg-background/80 backdrop-blur-xl shadow-glass border border-border/30">
+          <div className="absolute inset-0 opacity-20">
+            <div className="w-full h-full bg-gradient-primary/5 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%23000000%22 fill-opacity=%220.03%22%3E%3Ccircle cx=%2230%22 cy=%2230%22 r=%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
           </div>
           
           <CardContent className="relative z-10 py-16 px-8 text-center">
             <div className="space-y-8 max-w-3xl mx-auto">
               <div className="flex justify-center">
-                <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20">
-                  <Sparkles className="w-4 h-4 text-white" />
-                  <span className="text-white text-sm">Klaar om te beginnen?</span>
+                <div className="flex items-center space-x-2 bg-background/60 backdrop-blur-sm rounded-full px-4 py-2 border border-border/50 shadow-soft">
+                  <div className="w-4 h-4 rounded-full bg-gradient-primary flex items-center justify-center">
+                    <Sparkles className="w-3 h-3 text-white" />
+                  </div>
+                  <span className="text-foreground text-sm font-medium">Klaar om te beginnen?</span>
                 </div>
               </div>
               
-              <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
+              <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
                 Versterk je cybersecurity met{" "}
-                <span className="text-yellow-300">Flumi</span>
+                <span className="bg-gradient-primary bg-clip-text text-transparent">Flumi</span>
               </h2>
               
-              <p className="text-xl text-white/90 leading-relaxed">
+              <p className="text-xl text-muted-foreground leading-relaxed">
                 Sluit je aan bij duizenden bedrijven die hun cybersecurity al hebben getransformeerd met Flumi's AI-gestuurde platform.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
-                  variant="glass" 
                   size="lg" 
-                  className="text-lg px-8 py-4 group"
+                  className="text-lg px-8 py-4 group bg-gradient-primary hover:shadow-colored-hover shadow-colored transition-all"
                 >
                   Start gratis trial
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -41,23 +42,32 @@ const CTA = () => {
                 <Button 
                   variant="outline" 
                   size="lg" 
-                  className="text-lg px-8 py-4 bg-white text-primary hover:bg-white/90"
+                  className="text-lg px-8 py-4 bg-background/80 backdrop-blur-sm border-border/50 hover:bg-background"
                 >
                   Vraag een demo aan
                 </Button>
               </div>
               
-              <div className="flex items-center justify-center space-x-8 text-white/80 text-sm">
-                <span>✓ 14 dagen gratis</span>
-                <span>✓ Geen creditcard vereist</span>
-                <span>✓ Instant toegang</span>
+              <div className="flex items-center justify-center space-x-8 text-muted-foreground text-sm">
+                <span className="flex items-center space-x-1">
+                  <div className="w-1 h-1 rounded-full bg-gradient-to-r from-green-400 to-green-500"></div>
+                  <span>14 dagen gratis</span>
+                </span>
+                <span className="flex items-center space-x-1">
+                  <div className="w-1 h-1 rounded-full bg-gradient-to-r from-blue-400 to-blue-500"></div>
+                  <span>Geen creditcard vereist</span>
+                </span>
+                <span className="flex items-center space-x-1">
+                  <div className="w-1 h-1 rounded-full bg-gradient-primary"></div>
+                  <span>Instant toegang</span>
+                </span>
               </div>
             </div>
           </CardContent>
           
-          {/* Decorative elements */}
-          <div className="absolute top-8 right-8 w-20 h-20 bg-white/10 rounded-full blur-xl"></div>
-          <div className="absolute bottom-8 left-8 w-32 h-32 bg-white/5 rounded-full blur-xl"></div>
+          {/* Decorative glass elements */}
+          <div className="absolute top-8 right-8 w-20 h-20 bg-gradient-primary/10 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-8 left-8 w-32 h-32 bg-gradient-accent/5 rounded-full blur-2xl"></div>
         </Card>
       </div>
     </section>

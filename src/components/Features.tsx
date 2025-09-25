@@ -42,10 +42,10 @@ const Features = () => {
   ];
 
   return (
-    <section id="features" className="py-24 bg-secondary/30">
+    <section id="features" className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <div className="text-center space-y-6 mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold">
+          <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
             Krachtige features voor{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
               moderne cybersecurity
@@ -60,20 +60,20 @@ const Features = () => {
           {features.map((feature, index) => (
             <Card 
               key={index} 
-              className="group relative bg-white/50 backdrop-blur-sm border-white/20 shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-2"
+              className="group relative bg-background/80 backdrop-blur-xl border border-border/30 shadow-glass hover:shadow-medium transition-all duration-300 hover:-translate-y-2"
             >
               <CardHeader className="space-y-4">
                 <div className={`w-12 h-12 rounded-xl ${feature.gradient} flex items-center justify-center shadow-colored`}>
                   <feature.icon className="w-6 h-6 text-white" />
                 </div>
-                <CardTitle className="text-xl font-semibold">{feature.title}</CardTitle>
+                <CardTitle className="text-xl font-semibold text-foreground">{feature.title}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
               </CardContent>
               
               {/* Hover gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
+              <div className="absolute inset-0 bg-gradient-primary/3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
             </Card>
           ))}
         </div>
