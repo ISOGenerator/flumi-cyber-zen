@@ -220,40 +220,44 @@ const Chat = () => {
             </div>
           </div>
 
-          {/* Bottom Input Area */}
-          <div className="bg-white px-6 py-6">
+          {/* Bottom Input Area - Exact TypingMind Match */}
+          <div className="border-t border-gray-100 bg-white px-6 py-4">
             <div className="max-w-4xl mx-auto">
-              <div className="relative mb-4">
-                <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10">
+              {/* Input Field */}
+              <div className="relative mb-3">
+                <div className="absolute left-3 top-1/2 transform -translate-y-1/2 z-10">
                   <Slash className="h-4 w-4 text-gray-400" />
                 </div>
                 <input
                   type="text"
                   placeholder="How can I help you today"
-                  className="w-full h-12 pl-12 pr-20 text-base bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder:text-gray-500"
+                  className="w-full h-12 pl-10 pr-24 text-base bg-white border border-[#e5e5e5] rounded-lg shadow-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder:text-gray-400"
+                  style={{ 
+                    boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)'
+                  }}
                 />
                 <div className="absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
-                  <button className="h-7 w-7 flex items-center justify-center hover:bg-gray-100 rounded-full transition-colors">
-                    <Mic className="h-4 w-4 text-gray-500" />
+                  <button className="h-6 w-6 flex items-center justify-center hover:bg-gray-50 rounded transition-colors">
+                    <Mic className="h-4 w-4 text-gray-400" />
                   </button>
-                  <button className="h-7 w-7 flex items-center justify-center bg-blue-600 hover:bg-blue-700 rounded-full transition-colors">
-                    <Send className="h-3.5 w-3.5 text-white" />
+                  <button className="h-8 w-8 flex items-center justify-center bg-blue-500 hover:bg-blue-600 rounded-full transition-colors">
+                    <Send className="h-4 w-4 text-white" />
                   </button>
                 </div>
               </div>
               
-              {/* Bottom Controls */}
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-2 text-gray-600">
+              {/* Bottom Row */}
+              <div className="flex items-center justify-between text-sm">
+                <div className="flex items-center space-x-1.5 text-gray-500">
                   <Folder className="h-4 w-4" />
-                  <span className="text-sm">My Prompts</span>
+                  <span>My Prompts</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <button className="h-6 w-6 flex items-center justify-center hover:bg-gray-100 rounded transition-colors">
-                    <Menu className="h-4 w-4 text-gray-500" />
+                <div className="flex items-center space-x-3">
+                  <button className="flex items-center justify-center hover:text-gray-700 transition-colors">
+                    <Menu className="h-4 w-4 text-gray-400" />
                   </button>
-                  <button className="h-6 w-6 flex items-center justify-center hover:bg-gray-100 rounded transition-colors">
-                    <Paperclip className="h-4 w-4 text-gray-500" />
+                  <button className="flex items-center justify-center hover:text-gray-700 transition-colors">
+                    <Paperclip className="h-4 w-4 text-gray-400" />
                   </button>
                 </div>
               </div>
