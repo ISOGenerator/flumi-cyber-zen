@@ -1,58 +1,64 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Brain, FileCheck, Shield, Zap, Clock, Users } from "lucide-react";
+import { Shield, Gavel, FileSearch, Users, Zap, Globe } from "lucide-react";
 
 const Features = () => {
   const features = [
     {
-      icon: Brain,
-      title: "AI-Assistent",
-      description: "Stel elke cybersecurity vraag en krijg direct intelligente antwoorden van Flumi.",
+      icon: Shield,
+      title: "EU Compliance Expertise",
+      description: "Complete kennis van GDPR, NIS2, AI Act, DORA en andere EU regelgeving met real-time updates.",
       gradient: "bg-gradient-primary"
     },
     {
-      icon: FileCheck,
-      title: "Document Generatie",
-      description: "Maak automatisch professionele documenten met je eigen templates door simpelweg vragen te stellen.",
+      icon: FileSearch,
+      title: "Document Intelligence",
+      description: "AI-gedreven analyse van beleid, contracten en procedures met gap identification en remediation.",
       gradient: "bg-gradient-secondary"
     },
     {
-      icon: Shield,
-      title: "Security Overzicht",
-      description: "Krijg een kristalhelder overzicht van je complete cybersecurity status in één dashboard.",
+      icon: Gavel,
+      title: "Fictieve Audits",
+      description: "Voer realistische compliance audits uit ter voorbereiding op echte toezichthoudende controles.",
       gradient: "bg-gradient-accent"
     },
     {
-      icon: Zap,
-      title: "Instant Antwoorden",
-      description: "Geen wachttijden meer. Flumi geeft je binnen seconden de cybersecurity inzichten die je nodig hebt.",
+      icon: Users,
+      title: "Specialized Assistants",
+      description: "8 gespecialiseerde AI-assistenten voor elk cybersecurity en compliance domein.",
       gradient: "bg-gradient-primary"
     },
     {
-      icon: Clock,
-      title: "24/7 Beschikbaar",
-      description: "Flumi werkt rond de klok en is altijd klaar om je te helpen met cybersecurity uitdagingen.",
+      icon: Zap,
+      title: "Instant Risk Assessment",
+      description: "Directe risicobeoordelingen en impact analyses voor cybersecurity incidenten en threats.",
       gradient: "bg-gradient-secondary"
     },
     {
-      icon: Users,
-      title: "Team Samenwerking",
-      description: "Deel inzichten en documenten naadloos met je team voor betere cybersecurity besluitvorming.",
+      icon: Globe,
+      title: "Multi-Sector Support",
+      description: "Expertise voor alle sectoren: financieel, healthcare, kritieke infrastructuur, en meer.",
       gradient: "bg-gradient-accent"
     }
   ];
 
   return (
-    <section id="features" className="py-24 bg-background">
-      <div className="container mx-auto px-6">
+    <section id="features" className="py-24 relative">
+      {/* Background */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 left-1/4 w-72 h-72 bg-gradient-primary rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-secondary rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center space-y-6 mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
-            Krachtige features voor{" "}
+            Alles voor{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
-              moderne cybersecurity
+              EU Cybersecurity Compliance
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Flumi combineert AI-intelligentie met praktische tools om je cybersecurity workflow te revolutioneren.
+            Van GDPR tot AI Act - Flumi heeft alle expertise om je organisatie compliant en veilig te houden.
           </p>
         </div>
         
@@ -60,20 +66,17 @@ const Features = () => {
           {features.map((feature, index) => (
             <Card 
               key={index} 
-              className="group relative bg-background/80 backdrop-blur-xl border border-border/30 shadow-glass hover:shadow-medium transition-all duration-300 hover:-translate-y-2"
+              className="group relative glass hover-lift border-white/20"
             >
               <CardHeader className="space-y-4">
-                <div className={`w-12 h-12 rounded-xl ${feature.gradient} flex items-center justify-center shadow-colored`}>
+                <div className={`w-12 h-12 rounded-xl ${feature.gradient} flex items-center justify-center shadow-colored group-hover:scale-110 transition-transform`}>
                   <feature.icon className="w-6 h-6 text-white" />
                 </div>
-                <CardTitle className="text-xl font-semibold text-foreground">{feature.title}</CardTitle>
+                <CardTitle className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">{feature.title}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
               </CardContent>
-              
-              {/* Hover gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-primary/3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
             </Card>
           ))}
         </div>
