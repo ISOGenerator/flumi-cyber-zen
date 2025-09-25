@@ -1,8 +1,50 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MessageCircle, Send, Bot, Shield, Paperclip, ArrowRight, ToggleLeft, ToggleRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const Hero = () => {
+  const questions = [
+    "Hoe bescherm ik mijn bedrijf tegen phishing?",
+    "Wat is ISO 27001 certificering?", 
+    "Hoe implementeer ik multi-factor authenticatie?",
+    "Welke cybersecurity training is nodig?",
+    "Hoe maak ik een incident response plan?",
+    "Wat zijn de GDPR compliance vereisten?"
+  ];
+
+  const [currentText, setCurrentText] = useState("");
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [isTyping, setIsTyping] = useState(true);
+  const [charIndex, setCharIndex] = useState(0);
+
+  useEffect(() => {
+    const currentQuestion = questions[currentQuestionIndex];
+    
+    const timer = setTimeout(() => {
+      if (isTyping) {
+        if (charIndex < currentQuestion.length) {
+          setCurrentText(currentQuestion.slice(0, charIndex + 1));
+          setCharIndex(charIndex + 1);
+        } else {
+          // Wait before starting to delete
+          setTimeout(() => setIsTyping(false), 2000);
+        }
+      } else {
+        if (charIndex > 0) {
+          setCurrentText(currentQuestion.slice(0, charIndex - 1));
+          setCharIndex(charIndex - 1);
+        } else {
+          // Move to next question
+          setCurrentQuestionIndex((prev) => (prev + 1) % questions.length);
+          setIsTyping(true);
+        }
+      }
+    }, isTyping ? 80 : 50); // Typing speed vs deleting speed
+
+    return () => clearTimeout(timer);
+  }, [currentText, currentQuestionIndex, isTyping, charIndex, questions]);
+
   return (
     <section className="pt-20 pb-32 relative overflow-hidden">
       {/* Background Elements */}
@@ -86,12 +128,13 @@ const Hero = () => {
                     <div className="relative">
                       <input
                         type="text"
+                        value={currentText}
                         placeholder="How can I help you today"
                         className="w-full h-16 pl-10 pr-20 text-base bg-gray-50/50 border-2 border-transparent rounded-xl shadow-sm backdrop-blur-sm"
                         style={{
                           background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, #ec4899, #8b5cf6) border-box'
                         }}
-                        disabled
+                        readOnly
                       />
                       <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
                         <div className="h-4 w-4 text-gray-400">💬</div>
