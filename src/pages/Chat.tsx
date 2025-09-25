@@ -284,225 +284,173 @@ const Chat = () => {
 
         {/* Main Content */}
         <main className="flex-1 flex flex-col overflow-hidden">
-          {!selectedAgent ? (
-            /* Welcome Area */
-            <div className="flex-1 flex flex-col px-6 py-8 overflow-y-auto">
-              <div className="max-w-4xl mx-auto w-full">
-                <div className="text-center mb-12">
-                  <h1 className="text-3xl font-semibold text-gray-900 mb-2">Hey, I'm Flumi.</h1>
-                  <p className="text-lg text-gray-600">How can I help you today?</p>
-                </div>
-
-                {/* Agent Cards Section Header */}
-                <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-lg font-medium text-gray-900">Your AI agents</h2>
-                  <button className="flex items-center text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors">
-                    All agents
-                    <ChevronRight className="h-4 w-4 ml-1" />
-                  </button>
-                </div>
-
-                {/* AI Agent Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
-                  {agentCards.map((agent) => {
-                    const IconComponent = agent.icon;
-                    return (
-                      <Card
-                        key={agent.id}
-                        className="cursor-pointer transition-all duration-200 hover:shadow-lg bg-white/40 backdrop-blur-sm border border-white/30 hover:border-white/40 rounded-lg"
-                        onClick={() => handleAgentSelect(agent.id)}
-                      >
-                        <CardContent className="p-6">
-                          <div className="flex items-start space-x-4">
-                            <div className={`w-10 h-10 rounded-full ${agent.iconBg} flex items-center justify-center flex-shrink-0`}>
-                              <IconComponent className={`h-5 w-5 ${agent.iconColor}`} />
-                            </div>
-                            <div className="flex-1 min-w-0">
-                              <h3 className="font-semibold text-gray-900 mb-2 text-base">{agent.title}</h3>
-                              <p className="text-sm text-gray-600 leading-relaxed">{agent.description}</p>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    );
-                  })}
-                </div>
-
-                {/* Disclaimer */}
-                <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-8">
-                  <div className="flex items-start space-x-3">
-                    <div className="flex-shrink-0">
-                      <svg className="h-5 w-5 text-amber-600" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="text-sm font-medium text-amber-800">Belangrijk</h3>
-                      <p className="text-sm text-amber-700 mt-1">
-                        Controleer altijd de informatie die je van AI agents krijgt. Dit zijn suggesties en geen definitieve adviezen. 
-                        Raadpleeg altijd officiële bronnen en experts voor belangrijke beslissingen.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+          {/* Welcome Area */}
+          <div className="flex-1 flex flex-col px-6 py-8 overflow-y-auto">
+            <div className="max-w-4xl mx-auto w-full">
+              <div className="text-center mb-12">
+                <h1 className="text-3xl font-semibold text-gray-900 mb-2">
+                  {selectedAgent && selectedAgentData 
+                    ? `Hey, ik ben Flumi jouw ${selectedAgentData.title}` 
+                    : "Hey, I'm Flumi."
+                  }
+                </h1>
+                <p className="text-lg text-gray-600">How can I help you today?</p>
               </div>
-            </div>
-          ) : (
-            /* Chat Interface */
-            <div className="flex-1 flex flex-col">
-              {/* Chat Header */}
-              <div className="bg-white border-b border-gray-200 px-6 py-4">
-                <div className="flex items-center space-x-4">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={handleNewChat}
-                    className="hover:bg-gray-100"
-                  >
-                    <ArrowLeft className="h-4 w-4" />
-                  </Button>
-                  {selectedAgentData && (
-                    <>
-                      <div className={`w-8 h-8 rounded-full ${selectedAgentData.iconBg} flex items-center justify-center`}>
-                        <selectedAgentData.icon className={`h-4 w-4 ${selectedAgentData.iconColor}`} />
+
+              {!selectedAgent && (
+                <>
+                  {/* Agent Cards Section Header */}
+                  <div className="flex items-center justify-between mb-6">
+                    <h2 className="text-lg font-medium text-gray-900">Your AI agents</h2>
+                    <button className="flex items-center text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors">
+                      All agents
+                      <ChevronRight className="h-4 w-4 ml-1" />
+                    </button>
+                  </div>
+
+                  {/* AI Agent Cards Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+                    {agentCards.map((agent) => {
+                      const IconComponent = agent.icon;
+                      return (
+                        <Card
+                          key={agent.id}
+                          className="cursor-pointer transition-all duration-200 hover:shadow-lg bg-white/40 backdrop-blur-sm border border-white/30 hover:border-white/40 rounded-lg"
+                          onClick={() => handleAgentSelect(agent.id)}
+                        >
+                          <CardContent className="p-6">
+                            <div className="flex items-start space-x-4">
+                              <div className={`w-10 h-10 rounded-full ${agent.iconBg} flex items-center justify-center flex-shrink-0`}>
+                                <IconComponent className={`h-5 w-5 ${agent.iconColor}`} />
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <h3 className="font-semibold text-gray-900 mb-2 text-base">{agent.title}</h3>
+                                <p className="text-sm text-gray-600 leading-relaxed">{agent.description}</p>
+                              </div>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      );
+                    })}
+                  </div>
+
+                  {/* Disclaimer */}
+                  <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-8">
+                    <div className="flex items-start space-x-3">
+                      <div className="flex-shrink-0">
+                        <svg className="h-5 w-5 text-amber-600" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                        </svg>
                       </div>
                       <div>
-                        <h2 className="font-semibold text-gray-900">Hey, ik ben Flumi jouw {selectedAgentData.title}</h2>
-                        <p className="text-sm text-gray-500">AI Assistant</p>
+                        <h3 className="text-sm font-medium text-amber-800">Belangrijk</h3>
+                        <p className="text-sm text-amber-700 mt-1">
+                          Controleer altijd de informatie die je van AI agents krijgt. Dit zijn suggesties en geen definitieve adviezen. 
+                          Raadpleeg altijd officiële bronnen en experts voor belangrijke beslissingen.
+                        </p>
                       </div>
-                    </>
-                  )}
-                </div>
-              </div>
-
-              {/* Messages Area */}
-              <div className="flex-1 overflow-y-auto px-6 py-4 space-y-4">
-                {messages.length === 0 ? (
-                  <div className="flex flex-col items-center justify-center h-full text-center">
-                    <Bot className="h-12 w-12 text-gray-400 mb-4" />
-                    <h3 className="text-lg font-medium text-gray-900 mb-2">
-                      Start een gesprek met {selectedAgentData?.title}
-                    </h3>
-                    <p className="text-gray-500 max-w-sm">
-                      Stel je vraag over {selectedAgentData?.description.toLowerCase()}
-                    </p>
+                    </div>
                   </div>
-                ) : (
-                  <>
-                    {messages.map((message) => (
+                </>
+              )}
+
+              {/* Chat Messages Area - Always present but only shows messages when there are any */}
+              {selectedAgent && messages.length > 0 && (
+                <div className="space-y-4 mb-8">
+                  {messages.map((message) => (
+                    <div
+                      key={message.id}
+                      className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                    >
                       <div
-                        key={message.id}
-                        className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                        className={`max-w-3xl px-4 py-3 rounded-lg ${
+                          message.role === 'user'
+                            ? 'bg-blue-600 text-white'
+                            : 'bg-gray-100 text-gray-900'
+                        }`}
                       >
+                        <div className="whitespace-pre-wrap">{message.content}</div>
                         <div
-                          className={`max-w-3xl px-4 py-3 rounded-lg ${
-                            message.role === 'user'
-                              ? 'bg-blue-600 text-white'
-                              : 'bg-gray-100 text-gray-900'
+                          className={`text-xs mt-2 ${
+                            message.role === 'user' ? 'text-blue-100' : 'text-gray-500'
                           }`}
                         >
-                          <div className="whitespace-pre-wrap">{message.content}</div>
-                          <div
-                            className={`text-xs mt-2 ${
-                              message.role === 'user' ? 'text-blue-100' : 'text-gray-500'
-                            }`}
-                          >
-                            {message.timestamp.toLocaleTimeString()}
-                          </div>
+                          {message.timestamp.toLocaleTimeString()}
                         </div>
                       </div>
-                    ))}
-                    {isLoading && (
-                      <div className="flex justify-start">
-                        <div className="bg-gray-100 text-gray-900 max-w-3xl px-4 py-3 rounded-lg">
-                          <div className="flex items-center space-x-2">
-                            <div className="flex space-x-1">
-                              <div className="h-2 w-2 bg-gray-400 rounded-full animate-bounce"></div>
-                              <div className="h-2 w-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                              <div className="h-2 w-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
-                            </div>
-                            <span className="text-sm text-gray-500">Aan het typen...</span>
+                    </div>
+                  ))}
+                  {isLoading && (
+                    <div className="flex justify-start">
+                      <div className="bg-gray-100 text-gray-900 max-w-3xl px-4 py-3 rounded-lg">
+                        <div className="flex items-center space-x-2">
+                          <div className="flex space-x-1">
+                            <div className="h-2 w-2 bg-gray-400 rounded-full animate-bounce"></div>
+                            <div className="h-2 w-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                            <div className="h-2 w-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
                           </div>
+                          <span className="text-sm text-gray-500">Aan het typen...</span>
                         </div>
                       </div>
-                    )}
-                    <div ref={messagesEndRef} />
-                  </>
-                )}
-              </div>
+                    </div>
+                  )}
+                  <div ref={messagesEndRef} />
+                </div>
+              )}
+            </div>
+          </div>
 
-              {/* Chat Input */}
-              <div className="bg-white border-t border-gray-200 px-6 py-4">
+          {/* Bottom Input Area - Always present */}
+          <div className="bg-white px-6 pb-6 pt-4">
+            <div className="max-w-4xl mx-auto">
+              {/* Input Field */}
+              <div className="relative mb-3">
+                <div className="absolute left-3 top-1/2 transform -translate-y-1/2 z-10">
+                  <Slash className="h-4 w-4 text-gray-400" />
+                </div>
+                <input
+                  type="text"
+                  value={inputMessage}
+                  onChange={(e) => setInputMessage(e.target.value)}
+                  onKeyPress={handleKeyPress}
+                  placeholder={selectedAgent ? "Typ je vraag..." : "Selecteer eerst een AI agent om te beginnen"}
+                  disabled={!selectedAgent || isLoading}
+                  className="w-full h-16 pl-10 pr-24 text-base bg-gray-50/50 border-2 border-transparent rounded-xl shadow-sm focus:outline-none focus:border-transparent focus:ring-2 focus:ring-pink-200 placeholder:text-gray-400 backdrop-blur-sm"
+                  style={{
+                    background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, #ec4899, #8b5cf6) border-box'
+                  }}
+                />
+                <div className="absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
+                  <button className="h-6 w-6 flex items-center justify-center hover:bg-gray-100 rounded transition-colors">
+                    <Mic className="h-4 w-4 text-gray-400" />
+                  </button>
+                  <button 
+                    onClick={sendMessage}
+                    disabled={!selectedAgent || !inputMessage.trim() || isLoading}
+                    className="h-8 w-8 flex items-center justify-center bg-pink-400 hover:bg-pink-500 rounded-full transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+                  >
+                    <Send className="h-4 w-4 text-white" />
+                  </button>
+                </div>
+              </div>
+              
+              {/* Bottom Row */}
+              <div className="flex items-center justify-between text-sm">
+                <div className="flex items-center space-x-1.5 text-gray-500">
+                  <Folder className="h-4 w-4" />
+                  <span>My Prompts</span>
+                </div>
                 <div className="flex items-center space-x-3">
-                  <div className="flex-1 relative">
-                    <Input
-                      value={inputMessage}
-                      onChange={(e) => setInputMessage(e.target.value)}
-                      onKeyPress={handleKeyPress}
-                      placeholder="Typ je vraag..."
-                      disabled={isLoading}
-                      className="pr-12"
-                    />
-                    <Button
-                      onClick={sendMessage}
-                      disabled={!inputMessage.trim() || isLoading}
-                      size="sm"
-                      className="absolute right-2 top-1/2 transform -translate-y-1/2"
-                    >
-                      <Send className="h-4 w-4" />
-                    </Button>
-                  </div>
+                  <button className="flex items-center justify-center hover:text-gray-700 transition-colors">
+                    <Menu className="h-4 w-4 text-gray-400" />
+                  </button>
+                  <button className="flex items-center justify-center hover:text-gray-700 transition-colors">
+                    <Paperclip className="h-4 w-4 text-gray-400" />
+                  </button>
                 </div>
               </div>
             </div>
-          )}
-
-          {!selectedAgent && (
-            /* Bottom Input Area - Only show when no agent selected */
-            <div className="bg-white px-6 pb-6 pt-4">
-              <div className="max-w-4xl mx-auto">
-                {/* Input Field */}
-                <div className="relative mb-3">
-                  <div className="absolute left-3 top-1/2 transform -translate-y-1/2 z-10">
-                    <Slash className="h-4 w-4 text-gray-400" />
-                  </div>
-                  <input
-                    type="text"
-                    placeholder="Selecteer eerst een AI agent om te beginnen"
-                    disabled
-                    className="w-full h-16 pl-10 pr-24 text-base bg-gray-50/50 border-2 border-transparent rounded-xl shadow-sm placeholder:text-gray-400 backdrop-blur-sm cursor-not-allowed"
-                    style={{
-                      background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, #ec4899, #8b5cf6) border-box'
-                    }}
-                  />
-                  <div className="absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
-                    <button disabled className="h-6 w-6 flex items-center justify-center rounded transition-colors cursor-not-allowed">
-                      <Mic className="h-4 w-4 text-gray-300" />
-                    </button>
-                    <button disabled className="h-8 w-8 flex items-center justify-center bg-gray-300 rounded-full cursor-not-allowed">
-                      <Send className="h-4 w-4 text-white" />
-                    </button>
-                  </div>
-                </div>
-                
-                {/* Bottom Row */}
-                <div className="flex items-center justify-between text-sm">
-                  <div className="flex items-center space-x-1.5 text-gray-400">
-                    <Folder className="h-4 w-4" />
-                    <span>My Prompts</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <button disabled className="flex items-center justify-center cursor-not-allowed">
-                      <Menu className="h-4 w-4 text-gray-300" />
-                    </button>
-                    <button disabled className="flex items-center justify-center cursor-not-allowed">
-                      <Paperclip className="h-4 w-4 text-gray-300" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
+          </div>
         </main>
       </div>
     </div>
