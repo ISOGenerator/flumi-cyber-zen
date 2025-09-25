@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Shield } from "lucide-react";
-import flumiAvatar from "@/assets/flumi-avatar.png";
+import flumiAvatar from "@/assets/flumi-avatar-transparent.png";
 interface FlumiAvatarProps {
   size?: "sm" | "md" | "lg" | "xl";
   className?: string;
@@ -19,11 +19,11 @@ const FlumiAvatar = ({
   variant = "default",
   showFallback = true
 }: FlumiAvatarProps) => {
-  const avatarClasses = cn("rounded-full flex items-center justify-center overflow-hidden transition-all duration-300", sizeClasses[size], {
-    "bg-gradient-primary shadow-colored hover:shadow-colored-hover hover:scale-105": variant === "default",
-    "bg-gradient-primary shadow-colored": variant === "chat",
-    "bg-gradient-primary shadow-colored hover:scale-105 hover:shadow-colored-hover": variant === "hero"
-  }, className);
+  const avatarClasses = cn("flex items-center justify-center transition-all duration-300", {
+    "rounded-full overflow-hidden bg-gradient-primary shadow-colored hover:shadow-colored-hover hover:scale-105": variant === "default",
+    "rounded-full overflow-hidden bg-gradient-primary shadow-colored": variant === "chat",
+    "hover:scale-105 hover:drop-shadow-lg": variant === "hero"
+  }, sizeClasses[size], className);
   return (
     <div className={avatarClasses}>
       <img 

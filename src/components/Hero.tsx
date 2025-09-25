@@ -59,15 +59,17 @@ const Hero = () => {
                 🛡️ EU Cybersecurity Expert
               </Badge>
               
-              <div className="flex flex-col items-center space-y-6">
-                <FlumiAvatar size="xl" variant="hero" className="animate-float" />
-                
-                <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+              <div className="flex flex-col lg:flex-row items-center justify-center space-y-6 lg:space-y-0 lg:space-x-8">
+                <h1 className="text-5xl lg:text-7xl font-bold leading-tight text-center lg:text-left">
                   Ontmoet{" "}
                   <span className="bg-gradient-primary bg-clip-text text-transparent">
                     Flumi
                   </span>
                 </h1>
+                
+                <div className="flex-shrink-0">
+                  <FlumiAvatar size="xl" variant="hero" className="animate-float w-32 h-32 lg:w-40 lg:h-40" />
+                </div>
               </div>
 
               <div className="text-xl lg:text-2xl text-muted-foreground leading-tight">
