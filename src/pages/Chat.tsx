@@ -4,15 +4,17 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { useAgents, Agent } from "@/hooks/use-agents";
 import { supabase } from "@/integrations/supabase/client";
-interface AgentCard {
-  id: string;
-  title: string;
-  description: string;
-  icon: React.ComponentType<any>;
-  iconColor: string;
-  iconBg: string;
-}
+
+// Icon mapping for database icons to React components
+const iconMap = {
+  Shield: Shield,
+  Lightbulb: Lightbulb,
+  FileText: FileText,
+  Cog: Cog
+};
+
 interface Message {
   id: string;
   role: 'user' | 'assistant';
@@ -81,36 +83,9 @@ const MessageBubble = ({ message, isTyping, onTypingComplete }: {
     </div>
   );
 };
-const agentCards: AgentCard[] = [{
-  id: "auditor",
-  title: "ISO 27001 Auditor",
-  description: "Hulp bij audit voorbereiding en compliance verificatie voor ISO 27001 certificering.",
-  icon: Shield,
-  iconColor: "text-blue-600/60",
-  iconBg: "bg-blue-100/40"
-}, {
-  id: "consultant",
-  title: "Security Consultant",
-  description: "Strategisch advies voor cybersecurity implementatie en beleid ontwikkeling.",
-  icon: Lightbulb,
-  iconColor: "text-red-600/60",
-  iconBg: "bg-red-100/40"
-}, {
-  id: "standards",
-  title: "Standards Specialist",
-  description: "Expertise in cybersecurity standaarden zoals ISO 27001, NIS2 en GDPR compliance.",
-  icon: FileText,
-  iconColor: "text-purple-600/60",
-  iconBg: "bg-purple-100/40"
-}, {
-  id: "implementer",
-  title: "Security Implementer",
-  description: "Praktische implementatie van security controls en technische beveiligingsmaatregelen.",
-  icon: Cog,
-  iconColor: "text-orange-600/60",
-  iconBg: "bg-orange-100/40"
-}];
+
 const Chat = () => {
+  const { agents, loading } = useAgents();
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [selectedAgent, setSelectedAgent] = useState<string | null>(null);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -139,33 +114,35 @@ const Chat = () => {
     timestamp: 'Gisteren'
   }]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const {
-    toast
-  } = useToast();
-  const selectedAgentData = agentCards.find(agent => agent.id === selectedAgent);
+  const { toast } = useToast();
+
+  const selectedAgentData = agents.find(agent => agent.type === selectedAgent);
 
   // Typewriter effect for the title
   const titleText = selectedAgent && selectedAgentData ? `Hey, ik ben Flumi jouw ${selectedAgentData.title}` : "Hey, I'm Flumi.";
-  const {
-    displayText: displayTitle
-  } = useTypewriter(titleText, 80);
+  const { displayText: displayTitle } = useTypewriter(titleText, 80);
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({
       behavior: "smooth"
     });
   };
+
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
-  const handleAgentSelect = (agentId: string) => {
-    setSelectedAgent(agentId);
+
+  const handleAgentSelect = (agentType: string) => {
+    setSelectedAgent(agentType);
     setMessages([]);
   };
+
   const handleNewChat = () => {
     setSelectedAgent(null);
     setMessages([]);
     setInputMessage('');
   };
+
   const sendMessage = async () => {
     if (!inputMessage.trim() || !selectedAgent) return;
     const userMessage: Message = {
@@ -211,13 +188,24 @@ const Chat = () => {
       setIsLoading(false);
     }
   };
+
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       sendMessage();
     }
   };
-  return <div className="flex h-screen bg-white">
+
+  if (loading) {
+    return (
+      <div className="flex h-screen bg-white items-center justify-center">
+        <div className="text-lg text-gray-600">Agents laden...</div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex h-screen bg-white">
       {/* Left Sidebar */}
       <div className={`${sidebarOpen ? 'w-60' : 'w-16'} transition-all duration-300 bg-pink-50/40 backdrop-blur-md border-r border-pink-200/30 flex flex-col`}>
         {/* Sidebar Header */}
@@ -244,16 +232,20 @@ const Chat = () => {
           </Button>
 
           {/* Recent Chats */}
-          {sidebarOpen && <div className="mt-4 space-y-1">
+          {sidebarOpen && (
+            <div className="mt-4 space-y-1">
               <p className="text-xs font-medium text-gray-500 px-2 mb-2">Recent Chats</p>
-              {recentChats.map(chat => <button key={chat.id} className="w-full text-left p-2 rounded-md hover:bg-gray-50 transition-colors">
+              {recentChats.map(chat => (
+                <button key={chat.id} className="w-full text-left p-2 rounded-md hover:bg-gray-50 transition-colors">
                   <div className="text-sm text-gray-900 truncate">{chat.title}</div>
                   <div className="text-xs text-gray-500 flex items-center justify-between mt-1">
                     <span>{chat.agent}</span>
                     <span>{chat.timestamp}</span>
                   </div>
-                </button>)}
-            </div>}
+                </button>
+              ))}
+            </div>
+          )}
 
           <Button variant="ghost" size="sm" className="w-full justify-start hover:bg-gray-50">
             <Users className="h-4 w-4 text-gray-600" />
@@ -300,23 +292,30 @@ const Chat = () => {
             <div className="max-w-4xl mx-auto w-full">
               <div className="text-center mb-12">
                 <h1 className="text-3xl font-semibold text-gray-900 mb-2 min-h-[2.5rem] flex items-center justify-center">
-                  {selectedAgent && selectedAgentData ? <span>
-                      {displayTitle.includes('jouw') ? <>
+                  {selectedAgent && selectedAgentData ? (
+                    <span>
+                      {displayTitle.includes('jouw') ? (
+                        <>
                           {displayTitle.substring(0, displayTitle.indexOf('jouw') + 4)}{" "}
                           <span className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
                             {displayTitle.substring(displayTitle.indexOf('jouw') + 5)}
                           </span>
-                        </> : displayTitle}
+                        </>
+                      ) : displayTitle}
                       <span className="animate-pulse ml-1">|</span>
-                    </span> : <span>
+                    </span>
+                  ) : (
+                    <span>
                       {displayTitle}
                       <span className="animate-pulse ml-1">|</span>
-                    </span>}
+                    </span>
+                  )}
                 </h1>
                 <p className="text-lg text-gray-600">How can I help you today?</p>
               </div>
 
-              {!selectedAgent && <>
+              {!selectedAgent && (
+                <>
                   {/* Agent Cards Section Header */}
                   <div className="flex items-center justify-between mb-6">
                     <h2 className="text-lg font-medium text-gray-900">Your AI agents</h2>
@@ -328,13 +327,18 @@ const Chat = () => {
 
                   {/* AI Agent Cards Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
-                    {agentCards.map(agent => {
-                  const IconComponent = agent.icon;
-                  return <Card key={agent.id} className="cursor-pointer transition-all duration-200 hover:shadow-lg bg-white/40 backdrop-blur-sm border border-white/30 hover:border-white/40 rounded-lg" onClick={() => handleAgentSelect(agent.id)}>
+                    {agents.map(agent => {
+                      const IconComponent = iconMap[agent.icon as keyof typeof iconMap] || Cog;
+                      return (
+                        <Card 
+                          key={agent.id} 
+                          className="cursor-pointer transition-all duration-200 hover:shadow-lg bg-white/40 backdrop-blur-sm border border-white/30 hover:border-white/40 rounded-lg" 
+                          onClick={() => handleAgentSelect(agent.type)}
+                        >
                           <CardContent className="p-6">
                             <div className="flex items-start space-x-4">
-                              <div className={`w-10 h-10 rounded-full ${agent.iconBg} flex items-center justify-center flex-shrink-0`}>
-                                <IconComponent className={`h-5 w-5 ${agent.iconColor}`} />
+                              <div className={`w-10 h-10 rounded-full ${agent.icon_bg} flex items-center justify-center flex-shrink-0`}>
+                                <IconComponent className={`h-5 w-5 ${agent.icon_color}`} />
                               </div>
                               <div className="flex-1 min-w-0">
                                 <h3 className="font-semibold text-gray-900 mb-2 text-base">{agent.title}</h3>
@@ -342,16 +346,16 @@ const Chat = () => {
                               </div>
                             </div>
                           </CardContent>
-                        </Card>;
-                })}
+                        </Card>
+                      );
+                    })}
                   </div>
-
-                  {/* Disclaimer */}
-                  
-                </>}
+                </>
+              )}
 
               {/* Chat Messages Area - Always present but only shows messages when there are any */}
-              {selectedAgent && messages.length > 0 && <div className="space-y-4 mb-8">
+              {selectedAgent && messages.length > 0 && (
+                <div className="space-y-4 mb-8">
                   {messages.map(message => (
                     <MessageBubble 
                       key={message.id} 
@@ -360,24 +364,27 @@ const Chat = () => {
                       onTypingComplete={() => setTypingMessageId(null)}
                     />
                   ))}
-                  {isLoading && <div className="flex justify-start">
+                  {isLoading && (
+                    <div className="flex justify-start">
                       <div className="bg-gray-100 text-gray-900 max-w-3xl px-4 py-3 rounded-lg">
                         <div className="flex items-center space-x-2">
                           <div className="flex space-x-1">
                             <div className="h-2 w-2 bg-gray-400 rounded-full animate-bounce"></div>
                             <div className="h-2 w-2 bg-gray-400 rounded-full animate-bounce" style={{
-                        animationDelay: '0.1s'
-                      }}></div>
+                              animationDelay: '0.1s'
+                            }}></div>
                             <div className="h-2 w-2 bg-gray-400 rounded-full animate-bounce" style={{
-                        animationDelay: '0.2s'
-                      }}></div>
+                              animationDelay: '0.2s'
+                            }}></div>
                           </div>
                           <span className="text-sm text-gray-500">Aan het typen...</span>
                         </div>
                       </div>
-                    </div>}
+                    </div>
+                  )}
                   <div ref={messagesEndRef} />
-                </div>}
+                </div>
+              )}
             </div>
           </div>
 
@@ -389,14 +396,27 @@ const Chat = () => {
                 <div className="absolute left-3 top-1/2 transform -translate-y-1/2 z-10">
                   <Slash className="h-4 w-4 text-gray-400" />
                 </div>
-                <input type="text" value={inputMessage} onChange={e => setInputMessage(e.target.value)} onKeyPress={handleKeyPress} placeholder={selectedAgent ? "Typ je vraag..." : "Selecteer eerst een AI agent om te beginnen"} disabled={!selectedAgent || isLoading} className="w-full h-16 pl-10 pr-24 text-base bg-gray-50/50 border-2 border-transparent rounded-xl shadow-sm focus:outline-none focus:border-transparent focus:ring-2 focus:ring-pink-200 placeholder:text-gray-400 backdrop-blur-sm" style={{
-                background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, #ec4899, #8b5cf6) border-box'
-              }} />
+                <input 
+                  type="text" 
+                  value={inputMessage} 
+                  onChange={e => setInputMessage(e.target.value)} 
+                  onKeyPress={handleKeyPress} 
+                  placeholder={selectedAgent ? "Typ je vraag..." : "Selecteer eerst een AI agent om te beginnen"} 
+                  disabled={!selectedAgent || isLoading} 
+                  className="w-full h-16 pl-10 pr-24 text-base bg-gray-50/50 border-2 border-transparent rounded-xl shadow-sm focus:outline-none focus:border-transparent focus:ring-2 focus:ring-pink-200 placeholder:text-gray-400 backdrop-blur-sm" 
+                  style={{
+                    background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, #ec4899, #8b5cf6) border-box'
+                  }} 
+                />
                 <div className="absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
                   <button className="h-6 w-6 flex items-center justify-center hover:bg-gray-100 rounded transition-colors">
                     <Mic className="h-4 w-4 text-gray-400" />
                   </button>
-                  <button onClick={sendMessage} disabled={!selectedAgent || !inputMessage.trim() || isLoading} className="h-8 w-8 flex items-center justify-center bg-pink-400 hover:bg-pink-500 rounded-full transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed">
+                  <button 
+                    onClick={sendMessage} 
+                    disabled={!selectedAgent || !inputMessage.trim() || isLoading} 
+                    className="h-8 w-8 flex items-center justify-center bg-pink-400 hover:bg-pink-500 rounded-full transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+                  >
                     <Send className="h-4 w-4 text-white" />
                   </button>
                 </div>
@@ -421,6 +441,8 @@ const Chat = () => {
           </div>
         </main>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default Chat;
