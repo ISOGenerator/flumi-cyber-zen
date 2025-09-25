@@ -220,8 +220,8 @@ const Chat = () => {
             </div>
           </div>
 
-          {/* Bottom Input Area - Exact TypingMind Match */}
-          <div className="border-t border-gray-100 bg-white px-6 py-4">
+          {/* Bottom Input Area - Integrated */}
+          <div className="bg-white px-6 pb-6 pt-4">
             <div className="max-w-4xl mx-auto">
               {/* Input Field */}
               <div className="relative mb-3">
@@ -231,13 +231,10 @@ const Chat = () => {
                 <input
                   type="text"
                   placeholder="How can I help you today"
-                  className="w-full h-12 pl-10 pr-24 text-base bg-white border border-[#e5e5e5] rounded-lg shadow-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder:text-gray-400"
-                  style={{ 
-                    boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)'
-                  }}
+                  className="w-full h-12 pl-10 pr-24 text-base bg-gray-50/50 border border-gray-200/60 rounded-xl shadow-sm focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 placeholder:text-gray-400 backdrop-blur-sm"
                 />
                 <div className="absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
-                  <button className="h-6 w-6 flex items-center justify-center hover:bg-gray-50 rounded transition-colors">
+                  <button className="h-6 w-6 flex items-center justify-center hover:bg-gray-100 rounded transition-colors">
                     <Mic className="h-4 w-4 text-gray-400" />
                   </button>
                   <button className="h-8 w-8 flex items-center justify-center bg-blue-500 hover:bg-blue-600 rounded-full transition-colors">
