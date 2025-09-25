@@ -290,7 +290,14 @@ const Chat = () => {
               <div className="text-center mb-12">
                 <h1 className="text-3xl font-semibold text-gray-900 mb-2">
                   {selectedAgent && selectedAgentData 
-                    ? `Hey, ik ben Flumi jouw ${selectedAgentData.title}` 
+                    ? (
+                        <>
+                          Hey, ik ben Flumi jouw{" "}
+                          <span className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
+                            {selectedAgentData.title}
+                          </span>
+                        </>
+                      )
                     : "Hey, I'm Flumi."
                   }
                 </h1>
