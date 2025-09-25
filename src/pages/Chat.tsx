@@ -197,7 +197,7 @@ const Chat = () => {
                   return (
                     <Card
                       key={agent.id}
-                      className={`cursor-pointer transition-all duration-200 hover:shadow-lg bg-white border border-gray-200 hover:border-gray-300 rounded-lg ${
+                      className={`cursor-pointer transition-all duration-200 hover:shadow-lg glass border border-white/20 hover:border-white/30 rounded-lg ${
                         selectedAgent === agent.id ? 'ring-2 ring-blue-500' : ''
                       }`}
                       onClick={() => handleAgentSelect(agent.id)}
