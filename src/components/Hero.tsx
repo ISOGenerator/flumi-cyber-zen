@@ -56,26 +56,9 @@ const Hero = () => {
             {/* Chat Interface Container with 3D perspective */}
             <div className="relative transform rotate-1 hover:rotate-0 transition-transform duration-500">
               <div className="bg-gradient-to-br from-pink-50 to-white rounded-2xl shadow-2xl overflow-hidden border border-pink-200/30">
-                
-                {/* Sidebar (partially visible) */}
-                <div className="absolute left-0 top-0 bottom-0 w-16 bg-pink-50/40 backdrop-blur-md border-r border-pink-200/30 z-10">
-                  <div className="p-3 border-b border-pink-200/30">
-                    <div className="text-xs font-medium text-gray-600 mb-2">Select AI Model</div>
-                    <div className="space-y-2">
-                      <div className="flex items-center space-x-2 p-2 bg-white/40 backdrop-blur-sm rounded-lg">
-                        <ToggleRight className="w-4 h-4 text-pink-500" />
-                        <div className="text-xs font-medium text-gray-700 truncate">Flumi 2.5</div>
-                      </div>
-                      <div className="flex items-center space-x-2 p-2 hover:bg-white/30 rounded-lg cursor-pointer">
-                        <ToggleLeft className="w-4 h-4 text-gray-400" />
-                        <div className="text-xs text-gray-500 truncate">ChatGPT 4o</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
                 {/* Main Chat Window */}
-                <div className="ml-16">
+                <div>
                   {/* macOS Window Header */}
                   <div className="flex items-center justify-between p-4 border-b border-pink-200/30 bg-pink-50">
                     <div className="flex items-center space-x-2">
