@@ -65,9 +65,9 @@ const Hero = () => {
                 </span>
               </h1>
 
-              <div className="text-2xl lg:text-4xl font-semibold text-foreground leading-tight">
+              <div className="text-xl lg:text-2xl text-muted-foreground leading-tight">
                 Jouw persoonlijke cybersecurity{" "}
-                <span className="bg-gradient-accent bg-clip-text text-transparent transition-all duration-500">
+                <span className="bg-gradient-accent bg-clip-text text-transparent transition-all duration-500 font-semibold">
                   {expertTypes[currentExpertIndex]}
                 </span>
               </div>
