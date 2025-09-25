@@ -67,9 +67,7 @@ const Hero = () => {
                   </span>
                 </h1>
                 
-                <div className="flex-shrink-0">
-                  <FlumiAvatar size="xl" variant="hero" className="animate-float w-32 h-32 lg:w-40 lg:h-40" />
-                </div>
+                
               </div>
 
               <div className="text-xl lg:text-2xl text-muted-foreground leading-tight">
