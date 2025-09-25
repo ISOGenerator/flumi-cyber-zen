@@ -201,10 +201,4 @@ const Hero = () => {
     </section>
   );
 };
-        </div>
-      </div>
-    </section>
-  );
-};
-
 export default Hero;
