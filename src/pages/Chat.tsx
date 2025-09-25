@@ -197,7 +197,7 @@ const Chat = () => {
                   return (
                     <Card
                       key={agent.id}
-                      className={`cursor-pointer transition-all duration-200 hover:shadow-md bg-white border border-gray-200 hover:border-gray-300 ${
+                      className={`cursor-pointer transition-all duration-200 hover:shadow-lg bg-white border border-gray-200 hover:border-gray-300 rounded-lg ${
                         selectedAgent === agent.id ? 'ring-2 ring-blue-500' : ''
                       }`}
                       onClick={() => handleAgentSelect(agent.id)}
@@ -208,7 +208,7 @@ const Chat = () => {
                             <IconComponent className={`h-5 w-5 ${agent.iconColor}`} />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <h3 className="font-semibold text-gray-900 mb-2">{agent.title}</h3>
+                            <h3 className="font-semibold text-gray-900 mb-2 text-base">{agent.title}</h3>
                             <p className="text-sm text-gray-600 leading-relaxed">{agent.description}</p>
                           </div>
                         </div>
@@ -221,54 +221,40 @@ const Chat = () => {
           </div>
 
           {/* Bottom Input Area */}
-          <div className="bg-white border-t border-gray-200 px-6 py-6">
+          <div className="bg-white px-6 py-6">
             <div className="max-w-4xl mx-auto">
               <div className="relative mb-4">
-                <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
+                <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10">
                   <Slash className="h-4 w-4 text-gray-400" />
                 </div>
-                <Input
+                <input
+                  type="text"
                   placeholder="How can I help you today"
-                  className="pl-12 pr-20 py-4 text-base bg-white border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 rounded-xl shadow-sm"
+                  className="w-full h-12 pl-12 pr-20 text-base bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder:text-gray-500"
                 />
                 <div className="absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    className="h-8 w-8 p-0 hover:bg-gray-100 rounded-full"
-                  >
+                  <button className="h-7 w-7 flex items-center justify-center hover:bg-gray-100 rounded-full transition-colors">
                     <Mic className="h-4 w-4 text-gray-500" />
-                  </Button>
-                  <Button
-                    size="sm"
-                    className="h-8 w-8 p-0 bg-blue-600 hover:bg-blue-700 rounded-full"
-                  >
-                    <Send className="h-4 w-4 text-white" />
-                  </Button>
+                  </button>
+                  <button className="h-7 w-7 flex items-center justify-center bg-blue-600 hover:bg-blue-700 rounded-full transition-colors">
+                    <Send className="h-3.5 w-3.5 text-white" />
+                  </button>
                 </div>
               </div>
               
               {/* Bottom Controls */}
-              <div className="flex items-center justify-between text-sm">
-                <div className="flex items-center space-x-1 text-gray-600">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-2 text-gray-600">
                   <Folder className="h-4 w-4" />
-                  <span>My Prompts</span>
+                  <span className="text-sm">My Prompts</span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    className="h-8 w-8 p-0 hover:bg-gray-100 rounded-full"
-                  >
+                <div className="flex items-center space-x-2">
+                  <button className="h-6 w-6 flex items-center justify-center hover:bg-gray-100 rounded transition-colors">
                     <Menu className="h-4 w-4 text-gray-500" />
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    className="h-8 w-8 p-0 hover:bg-gray-100 rounded-full"
-                  >
+                  </button>
+                  <button className="h-6 w-6 flex items-center justify-center hover:bg-gray-100 rounded transition-colors">
                     <Paperclip className="h-4 w-4 text-gray-500" />
-                  </Button>
+                  </button>
                 </div>
               </div>
             </div>
