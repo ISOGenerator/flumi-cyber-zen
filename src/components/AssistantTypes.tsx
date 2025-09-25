@@ -80,7 +80,10 @@ const AssistantTypes = () => {
                   index % 4 === 2 ? 'bg-cyan/4' : 'bg-primary/3'
                 }`}></div>
                 
-                <Card className="relative p-6 glass hover-lift group cursor-pointer border-white/20 z-10">
+                <Card className="relative p-6 glass hover-lift group cursor-pointer border-2 z-10" 
+                  style={{
+                    background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent))) border-box'
+                  }}>
                 {assistant.popular && (
                   <Badge className="absolute -top-3 right-4 bg-gradient-primary text-white border-0 shadow-colored">
                     Populair
