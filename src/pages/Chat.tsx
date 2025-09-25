@@ -38,32 +38,32 @@ const agentCards: AgentCard[] = [
     title: "ISO 27001 Auditor",
     description: "Hulp bij audit voorbereiding en compliance verificatie voor ISO 27001 certificering.",
     icon: Shield,
-    iconColor: "text-white",
-    iconBg: "bg-blue-500"
+    iconColor: "text-blue-600/60",
+    iconBg: "bg-blue-100/40"
   },
   {
     id: "consultant",
     title: "Security Consultant", 
     description: "Strategisch advies voor cybersecurity implementatie en beleid ontwikkeling.",
     icon: Lightbulb,
-    iconColor: "text-white",
-    iconBg: "bg-red-500"
+    iconColor: "text-red-600/60",
+    iconBg: "bg-red-100/40"
   },
   {
     id: "standards",
     title: "Standards Specialist",
     description: "Expertise in cybersecurity standaarden zoals ISO 27001, NIS2 en GDPR compliance.",
     icon: FileText,
-    iconColor: "text-white",
-    iconBg: "bg-purple-500"
+    iconColor: "text-purple-600/60",
+    iconBg: "bg-purple-100/40"
   },
   {
     id: "implementer",
     title: "Security Implementer",
     description: "Praktische implementatie van security controls en technische beveiligingsmaatregelen.",
     icon: Cog,
-    iconColor: "text-white",
-    iconBg: "bg-orange-500"
+    iconColor: "text-orange-600/60",
+    iconBg: "bg-orange-100/40"
   }
 ];
 
@@ -194,7 +194,7 @@ const Chat = () => {
                   return (
                     <Card
                       key={agent.id}
-                      className={`cursor-pointer transition-all duration-200 hover:shadow-lg glass border border-white/20 hover:border-white/30 rounded-lg ${
+                      className={`cursor-pointer transition-all duration-200 hover:shadow-lg bg-white/40 backdrop-blur-sm border border-white/30 hover:border-white/40 rounded-lg ${
                         selectedAgent === agent.id ? 'ring-2 ring-blue-500' : ''
                       }`}
                       onClick={() => handleAgentSelect(agent.id)}
