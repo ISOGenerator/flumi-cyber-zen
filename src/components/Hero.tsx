@@ -48,9 +48,9 @@ const Hero = () => {
   return (
     <section className="pt-20 pb-32 relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-primary rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-secondary rounded-full blur-3xl"></div>
+      <div className="absolute inset-0 opacity-15">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-pink-100 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-100 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
