@@ -78,7 +78,7 @@ const Chat = () => {
   return (
     <div className="flex h-screen bg-white">
       {/* Left Sidebar */}
-      <div className={`${sidebarOpen ? 'w-60' : 'w-16'} transition-all duration-300 bg-white border-r border-gray-200 flex flex-col`}>
+      <div className={`${sidebarOpen ? 'w-60' : 'w-16'} transition-all duration-300 bg-white/30 backdrop-blur-md border-r border-white/20 flex flex-col`}>
         {/* Sidebar Header */}
         <div className="p-4">
           <Button
@@ -135,7 +135,7 @@ const Chat = () => {
         </nav>
 
         {/* User Profile */}
-        <div className="p-4 border-t border-gray-200">
+        <div className="p-4 border-t border-white/20">
           <Button
             variant="ghost"
             size="sm"
