@@ -12,9 +12,9 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Content */}
-          <div className="space-y-8">
+        <div className="flex flex-col items-center space-y-16">
+          {/* Hero Content */}
+          <div className="text-center space-y-8 max-w-4xl">
             <div className="space-y-6">
               <Badge variant="secondary" className="bg-secondary/80 text-primary border-0 px-4 py-2 text-sm font-medium">
                 🤖 AI Cybersecurity Expert
@@ -27,12 +27,12 @@ const Hero = () => {
                 </span>
               </h1>
               
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-xl">
+              <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
                 Je AI cybersecurity expert die 24/7 klaarstaat voor al je beveiligingsvragen
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
                 className="bg-gradient-primary hover:shadow-colored-hover shadow-colored transition-all text-lg px-8 py-4 group rounded-2xl"
@@ -51,8 +51,8 @@ const Hero = () => {
             </div>
           </div>
           
-          {/* Right Chat Interface Mockup */}
-          <div className="relative">
+          {/* Chat Interface Mockup */}
+          <div className="relative max-w-4xl w-full">
             {/* Chat Interface Container with 3D perspective */}
             <div className="relative transform rotate-1 hover:rotate-0 transition-transform duration-500">
               <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-2xl overflow-hidden border border-border/20">
