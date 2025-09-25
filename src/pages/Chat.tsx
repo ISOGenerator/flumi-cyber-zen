@@ -150,7 +150,7 @@ const Chat = () => {
       {/* Main Chat Area */}
       <div className="flex-1 flex flex-col bg-gradient-to-b from-pink-50 to-white">
         {/* Header */}
-        <header className="border-b border-gray-200 bg-white px-6 py-4">
+        <header className="border-b border-gray-200/60 bg-gradient-to-r from-pink-50 to-white px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <span className="text-lg font-semibold text-gray-900">Flumi</span>
