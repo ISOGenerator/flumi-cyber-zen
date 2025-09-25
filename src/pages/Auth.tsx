@@ -63,6 +63,12 @@ const Auth = () => {
             description: "Dit e-mailadres is al geregistreerd. Probeer in te loggen.",
             variant: "destructive"
           });
+        } else if (error.message.includes("rate_limit") || error.message.includes("24 seconds")) {
+          toast({
+            title: "Te veel pogingen",
+            description: "Wacht even voordat je opnieuw probeert te registreren.",
+            variant: "destructive"
+          });
         } else {
           toast({
             title: "Registratie mislukt",
@@ -72,10 +78,12 @@ const Auth = () => {
         }
       } else {
         toast({
-          title: "Registratie succesvol!",
-          description: "Controleer je e-mail voor verificatie.",
+          title: "Controleer je email!",
+          description: "We hebben je een bevestigingslink gestuurd. Klik daarop om je account te activeren en daarna kun je inloggen.",
+          duration: 8000,
         });
         setIsSignUp(false);
+        setFormData({ email: "", password: "", displayName: "" });
       }
     } catch (error) {
       if (error instanceof z.ZodError) {
@@ -101,11 +109,25 @@ const Auth = () => {
       });
 
       if (error) {
-        toast({
-          title: "Inloggen mislukt",
-          description: "Controleer je e-mailadres en wachtwoord.",
-          variant: "destructive"
-        });
+        if (error.message.includes("Email not confirmed")) {
+          toast({
+            title: "Email nog niet bevestigd",
+            description: "Controleer je inbox en klik op de bevestigingslink voordat je inlogt.",
+            variant: "destructive"
+          });
+        } else if (error.message.includes("Invalid login credentials")) {
+          toast({
+            title: "Onjuiste gegevens",
+            description: "Controleer je e-mailadres en wachtwoord.",
+            variant: "destructive"
+          });
+        } else {
+          toast({
+            title: "Inloggen mislukt",
+            description: error.message,
+            variant: "destructive"
+          });
+        }
       } else {
         toast({
           title: "Welkom terug!",
