@@ -134,7 +134,7 @@ const Hero = () => {
                     </div>
                     <div className="absolute right-5 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
                       <button className="h-8 w-8 flex items-center justify-center hover:bg-white/10 rounded-lg transition-colors">
-                        <Paperclip className="h-4 w-4 text-muted-foreground" />
+                        
                       </button>
                       <button className="h-10 w-10 flex items-center justify-center bg-gradient-primary hover:shadow-colored-hover rounded-xl transition-all shadow-colored">
                         <Send className="h-4 w-4 text-white" />
