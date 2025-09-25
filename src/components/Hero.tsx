@@ -2,31 +2,16 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MessageCircle, Send, Bot, Shield, Paperclip, ArrowRight, FileCheck, Users, Gavel } from "lucide-react";
 import { useState, useEffect } from "react";
-
 const Hero = () => {
-  const questions = [
-    "Wat zijn de GDPR compliance vereisten voor mijn bedrijf?",
-    "Hoe implementeer ik ISO 27001 in mijn organisatie?", 
-    "Kun je mijn data breach response plan controleren?",
-    "Welke NIS2-richtlijnen moet ik naleven?",
-    "Hoe voer ik een cybersecurity audit uit?",
-    "Wat zijn de nieuwe EU AI Act vereisten?",
-    "Help me met DORA compliance voor financiële diensten",
-    "Analyseer dit cybersecurity document voor risico's"
-  ];
-
+  const questions = ["Wat zijn de GDPR compliance vereisten voor mijn bedrijf?", "Hoe implementeer ik ISO 27001 in mijn organisatie?", "Kun je mijn data breach response plan controleren?", "Welke NIS2-richtlijnen moet ik naleven?", "Hoe voer ik een cybersecurity audit uit?", "Wat zijn de nieuwe EU AI Act vereisten?", "Help me met DORA compliance voor financiële diensten", "Analyseer dit cybersecurity document voor risico's"];
   const expertTypes = ["consultant", "auditor", "specialist"];
-
   const [currentText, setCurrentText] = useState("");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
   const [charIndex, setCharIndex] = useState(0);
-
   const [currentExpertIndex, setCurrentExpertIndex] = useState(0);
-
   useEffect(() => {
     const currentQuestion = questions[currentQuestionIndex];
-    
     const timer = setTimeout(() => {
       if (isTyping) {
         if (charIndex < currentQuestion.length) {
@@ -40,26 +25,23 @@ const Hero = () => {
           setCurrentText(currentQuestion.slice(0, charIndex - 1));
           setCharIndex(charIndex - 1);
         } else {
-          setCurrentQuestionIndex((prev) => (prev + 1) % questions.length);
+          setCurrentQuestionIndex(prev => (prev + 1) % questions.length);
           setIsTyping(true);
         }
       }
     }, isTyping ? 80 : 50);
-
     return () => clearTimeout(timer);
   }, [currentText, currentQuestionIndex, isTyping, charIndex, questions]);
 
   // Effect for rotating expert types
   useEffect(() => {
     const expertTimer = setInterval(() => {
-      setCurrentExpertIndex((prev) => (prev + 1) % expertTypes.length);
+      setCurrentExpertIndex(prev => (prev + 1) % expertTypes.length);
     }, 2000); // Change every 2 seconds
 
     return () => clearInterval(expertTimer);
   }, [expertTypes.length]);
-
-  return (
-    <section className="pt-32 pb-20 relative overflow-hidden bg-white">
+  return <section className="pt-32 pb-20 relative overflow-hidden bg-white">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-3">
         <div className="absolute top-20 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
@@ -90,43 +72,18 @@ const Hero = () => {
                 </span>
               </div>
               
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-                Je AI cybersecurity specialist voor Europese regelgeving, document review, compliance audits en meer
-              </p>
+              
             </div>
 
             {/* Quick Action Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12 max-w-4xl mx-auto">
-              <div className="glass p-4 rounded-2xl hover:shadow-colored transition-all group cursor-pointer">
-                <Gavel className="w-8 h-8 text-primary mb-2 group-hover:scale-110 transition-transform" />
-                <h3 className="font-semibold text-foreground">EU Regelgeving</h3>
-                <p className="text-sm text-muted-foreground">GDPR, NIS2, AI Act, DORA</p>
-              </div>
-              <div className="glass p-4 rounded-2xl hover:shadow-colored transition-all group cursor-pointer">
-                <FileCheck className="w-8 h-8 text-cyan mb-2 group-hover:scale-110 transition-transform" />
-                <h3 className="font-semibold text-foreground">Document Review</h3>
-                <p className="text-sm text-muted-foreground">Beleid, procedures, contracten</p>
-              </div>
-              <div className="glass p-4 rounded-2xl hover:shadow-colored transition-all group cursor-pointer">
-                <Users className="w-8 h-8 text-accent mb-2 group-hover:scale-110 transition-transform" />
-                <h3 className="font-semibold text-foreground">Compliance Audits</h3>
-                <p className="text-sm text-muted-foreground">Fictieve audits en assessments</p>
-              </div>
-            </div>
+            
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-              <Button 
-                size="lg" 
-                className="bg-gradient-primary hover:shadow-colored-hover shadow-colored transition-all text-lg px-8 py-4 group rounded-2xl"
-              >
+              <Button size="lg" className="bg-gradient-primary hover:shadow-colored-hover shadow-colored transition-all text-lg px-8 py-4 group rounded-2xl">
                 <MessageCircle className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                 Start Chat met Flumi
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="text-lg px-8 py-4 rounded-2xl group glass border-primary/20 hover:bg-primary/5"
-              >
+              <Button variant="outline" size="lg" className="text-lg px-8 py-4 rounded-2xl group glass border-primary/20 hover:bg-primary/5">
                 Bekijk Assistenten
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
@@ -164,16 +121,9 @@ const Hero = () => {
                 {/* Bottom Input Area */}
                 <div className="p-6 bg-gradient-to-b from-transparent to-white/5">
                   <div className="relative">
-                    <input
-                      type="text"
-                      value={currentText}
-                      placeholder="Stel je cybersecurity of compliance vraag..."
-                      className="w-full h-16 pl-14 pr-24 text-base glass-strong rounded-2xl shadow-medium text-foreground placeholder:text-muted-foreground border-2"
-                      style={{
-                        background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent))) border-box'
-                      }}
-                      readOnly
-                    />
+                    <input type="text" value={currentText} placeholder="Stel je cybersecurity of compliance vraag..." className="w-full h-16 pl-14 pr-24 text-base glass-strong rounded-2xl shadow-medium text-foreground placeholder:text-muted-foreground border-2" style={{
+                    background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent))) border-box'
+                  }} readOnly />
                     <div className="absolute left-5 top-1/2 transform -translate-y-1/2">
                       <Shield className="h-6 w-6 text-primary" />
                     </div>
@@ -191,13 +141,13 @@ const Hero = () => {
 
               {/* Floating decorative elements */}
               <div className="absolute -bottom-6 -right-6 w-20 h-20 bg-primary/10 rounded-full blur-xl animate-float"></div>
-              <div className="absolute -top-4 -left-4 w-16 h-16 bg-accent/10 rounded-full blur-lg animate-float" style={{animationDelay: '2s'}}></div>
+              <div className="absolute -top-4 -left-4 w-16 h-16 bg-accent/10 rounded-full blur-lg animate-float" style={{
+              animationDelay: '2s'
+            }}></div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
