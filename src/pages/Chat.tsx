@@ -43,6 +43,34 @@ interface Message {
   timestamp: Date;
 }
 
+// Typewriter hook
+const useTypewriter = (text: string, speed: number = 50) => {
+  const [displayText, setDisplayText] = useState('');
+  const [isComplete, setIsComplete] = useState(false);
+
+  useEffect(() => {
+    setDisplayText('');
+    setIsComplete(false);
+    
+    if (!text) return;
+
+    let i = 0;
+    const timer = setInterval(() => {
+      if (i < text.length) {
+        setDisplayText(text.slice(0, i + 1));
+        i++;
+      } else {
+        setIsComplete(true);
+        clearInterval(timer);
+      }
+    }, speed);
+
+    return () => clearInterval(timer);
+  }, [text, speed]);
+
+  return { displayText, isComplete };
+};
+
 const agentCards: AgentCard[] = [
   {
     id: "auditor",
@@ -92,6 +120,14 @@ const Chat = () => {
   ]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
+
+  const selectedAgentData = agentCards.find(agent => agent.id === selectedAgent);
+  
+  // Typewriter effect for the title
+  const titleText = selectedAgent && selectedAgentData 
+    ? `Hey, ik ben Flumi jouw ${selectedAgentData.title}` 
+    : "Hey, I'm Flumi.";
+  const { displayText: displayTitle } = useTypewriter(titleText, 80);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -166,8 +202,6 @@ const Chat = () => {
       sendMessage();
     }
   };
-
-  const selectedAgentData = agentCards.find(agent => agent.id === selectedAgent);
 
   return (
     <div className="flex h-screen bg-white">
@@ -288,18 +322,27 @@ const Chat = () => {
           <div className="flex-1 flex flex-col px-6 py-8 overflow-y-auto">
             <div className="max-w-4xl mx-auto w-full">
               <div className="text-center mb-12">
-                <h1 className="text-3xl font-semibold text-gray-900 mb-2">
-                  {selectedAgent && selectedAgentData 
-                    ? (
+                <h1 className="text-3xl font-semibold text-gray-900 mb-2 min-h-[2.5rem] flex items-center justify-center">
+                  {selectedAgent && selectedAgentData ? (
+                    <span>
+                      {displayTitle.includes('jouw') ? (
                         <>
-                          Hey, ik ben Flumi jouw{" "}
+                          {displayTitle.substring(0, displayTitle.indexOf('jouw') + 4)}{" "}
                           <span className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
-                            {selectedAgentData.title}
+                            {displayTitle.substring(displayTitle.indexOf('jouw') + 5)}
                           </span>
                         </>
-                      )
-                    : "Hey, I'm Flumi."
-                  }
+                      ) : (
+                        displayTitle
+                      )}
+                      <span className="animate-pulse ml-1">|</span>
+                    </span>
+                  ) : (
+                    <span>
+                      {displayTitle}
+                      <span className="animate-pulse ml-1">|</span>
+                    </span>
+                  )}
                 </h1>
                 <p className="text-lg text-gray-600">How can I help you today?</p>
               </div>
