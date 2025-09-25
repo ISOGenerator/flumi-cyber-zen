@@ -45,6 +45,42 @@ const useTypewriter = (text: string, speed: number = 50) => {
     isComplete
   };
 };
+
+// Message component with typewriter for AI messages
+const MessageBubble = ({ message, isTyping, onTypingComplete }: { 
+  message: Message; 
+  isTyping: boolean; 
+  onTypingComplete?: () => void;
+}) => {
+  const { displayText, isComplete } = useTypewriter(
+    isTyping && message.role === 'assistant' ? message.content : '', 
+    30
+  );
+
+  useEffect(() => {
+    if (isComplete && onTypingComplete) {
+      onTypingComplete();
+    }
+  }, [isComplete, onTypingComplete]);
+
+  const content = isTyping && message.role === 'assistant' ? displayText : message.content;
+
+  return (
+    <div className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+      <div className={`max-w-3xl px-4 py-3 rounded-lg ${message.role === 'user' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-900'}`}>
+        <div className="whitespace-pre-wrap">
+          {content}
+          {isTyping && message.role === 'assistant' && !isComplete && (
+            <span className="animate-pulse ml-1">|</span>
+          )}
+        </div>
+        <div className={`text-xs mt-2 ${message.role === 'user' ? 'text-blue-100' : 'text-gray-500'}`}>
+          {message.timestamp.toLocaleTimeString()}
+        </div>
+      </div>
+    </div>
+  );
+};
 const agentCards: AgentCard[] = [{
   id: "auditor",
   title: "ISO 27001 Auditor",
@@ -80,6 +116,7 @@ const Chat = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [typingMessageId, setTypingMessageId] = useState<string | null>(null);
   const [recentChats] = useState([{
     id: '1',
     title: 'ISO 27001 implementatie hulp',
@@ -162,6 +199,7 @@ const Chat = () => {
         timestamp: new Date()
       };
       setMessages(prev => [...prev, aiMessage]);
+      setTypingMessageId(aiMessage.id);
     } catch (error) {
       console.error('Error sending message:', error);
       toast({
@@ -314,14 +352,14 @@ const Chat = () => {
 
               {/* Chat Messages Area - Always present but only shows messages when there are any */}
               {selectedAgent && messages.length > 0 && <div className="space-y-4 mb-8">
-                  {messages.map(message => <div key={message.id} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                      <div className={`max-w-3xl px-4 py-3 rounded-lg ${message.role === 'user' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-900'}`}>
-                        <div className="whitespace-pre-wrap">{message.content}</div>
-                        <div className={`text-xs mt-2 ${message.role === 'user' ? 'text-blue-100' : 'text-gray-500'}`}>
-                          {message.timestamp.toLocaleTimeString()}
-                        </div>
-                      </div>
-                    </div>)}
+                  {messages.map(message => (
+                    <MessageBubble 
+                      key={message.id} 
+                      message={message} 
+                      isTyping={typingMessageId === message.id}
+                      onTypingComplete={() => setTypingMessageId(null)}
+                    />
+                  ))}
                   {isLoading && <div className="flex justify-start">
                       <div className="bg-gray-100 text-gray-900 max-w-3xl px-4 py-3 rounded-lg">
                         <div className="flex items-center space-x-2">
