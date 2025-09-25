@@ -19,14 +19,14 @@ const EURegulations = () => {
   ];
 
   return (
-    <section className="py-16 relative">
+    <section className="py-16 relative bg-white">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Animation/Visual Left */}
           <div className="relative">
-            <div className="glass p-8 rounded-3xl border border-white/20">
+            <div className="glass p-8 rounded-3xl border border-gray-100 shadow-soft">
               <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
+                <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 shadow-soft">
                   <Shield className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground">EU Compliance Hub</h3>
@@ -34,7 +34,7 @@ const EURegulations = () => {
               
               <div className="grid grid-cols-2 gap-4">
                 {regulations.map((reg, index) => (
-                  <div key={index} className="glass p-3 rounded-xl text-center hover:scale-105 transition-transform">
+                  <div key={index} className="bg-gray-50/50 p-3 rounded-xl text-center hover:scale-105 transition-transform hover:shadow-soft">
                     <div className="font-semibold text-foreground">{reg.name}</div>
                     <div className={`text-sm ${reg.color}`}>{reg.status}</div>
                   </div>
@@ -50,8 +50,8 @@ const EURegulations = () => {
             </div>
             
             {/* Floating elements */}
-            <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-primary opacity-20 rounded-full blur-xl animate-float"></div>
-            <div className="absolute -bottom-4 -left-4 w-10 h-10 bg-gradient-accent opacity-20 rounded-full blur-lg animate-float" style={{animationDelay: '2s'}}></div>
+            <div className="absolute -top-4 -right-4 w-12 h-12 bg-primary/5 rounded-full blur-xl animate-float"></div>
+            <div className="absolute -bottom-4 -left-4 w-10 h-10 bg-accent/5 rounded-full blur-lg animate-float" style={{animationDelay: '2s'}}></div>
           </div>
 
           {/* Text Right */}

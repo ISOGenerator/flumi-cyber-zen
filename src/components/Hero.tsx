@@ -46,12 +46,12 @@ const Hero = () => {
   }, [currentText, currentQuestionIndex, isTyping, charIndex, questions]);
 
   return (
-    <section className="pt-20 pb-20 relative overflow-hidden">
+    <section className="pt-20 pb-20 relative overflow-hidden bg-white">
       {/* Background Elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-primary rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-secondary rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-accent rounded-full blur-3xl"></div>
+      <div className="absolute inset-0 opacity-3">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-accent/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-cyan/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -164,8 +164,8 @@ const Hero = () => {
               </div>
 
               {/* Floating decorative elements */}
-              <div className="absolute -bottom-6 -right-6 w-20 h-20 bg-gradient-primary opacity-20 rounded-full blur-xl animate-float"></div>
-              <div className="absolute -top-4 -left-4 w-16 h-16 bg-gradient-accent opacity-20 rounded-full blur-lg animate-float" style={{animationDelay: '2s'}}></div>
+              <div className="absolute -bottom-6 -right-6 w-20 h-20 bg-primary/10 rounded-full blur-xl animate-float"></div>
+              <div className="absolute -top-4 -left-4 w-16 h-16 bg-accent/10 rounded-full blur-lg animate-float" style={{animationDelay: '2s'}}></div>
             </div>
           </div>
         </div>

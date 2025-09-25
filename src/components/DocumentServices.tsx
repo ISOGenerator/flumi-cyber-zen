@@ -20,7 +20,7 @@ const DocumentServices = () => {
   ];
 
   return (
-    <section className="py-16 relative">
+    <section className="py-16 relative bg-white">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Left */}
@@ -46,7 +46,7 @@ const DocumentServices = () => {
                 const IconComponent = feature.icon;
                 return (
                   <div key={index} className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center shadow-soft">
                       <IconComponent className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-foreground font-medium">{feature.text}</span>
@@ -63,9 +63,9 @@ const DocumentServices = () => {
 
           {/* Animation/Visual Right */}
           <div className="relative">
-            <div className="glass p-8 rounded-3xl border border-white/20">
+            <div className="bg-gray-50/50 p-8 rounded-3xl border border-gray-100 shadow-soft">
               <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-gradient-secondary rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
+                <div className="w-16 h-16 bg-gradient-secondary rounded-full flex items-center justify-center mx-auto mb-4 shadow-soft">
                   <FileText className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground">Document Processor</h3>
@@ -73,20 +73,20 @@ const DocumentServices = () => {
               
               {/* Upload simulation */}
               <div className="space-y-4">
-                <div className="glass p-4 rounded-xl border-2 border-dashed border-primary/30 text-center hover:border-primary/60 transition-colors">
+                <div className="bg-white p-4 rounded-xl border-2 border-dashed border-primary/30 text-center hover:border-primary/60 transition-colors shadow-soft">
                   <Upload className="w-8 h-8 text-primary mx-auto mb-2" />
                   <p className="text-sm text-muted-foreground">Drop your document here</p>
                 </div>
                 
                 {/* Processing steps */}
                 <div className="space-y-2">
-                  <div className="flex items-center justify-between p-2 glass rounded-lg">
+                  <div className="flex items-center justify-between p-2 bg-white rounded-lg shadow-soft">
                     <span className="text-sm text-foreground">Analyzing content</span>
                     <div className="w-6 h-1 bg-primary/20 rounded-full overflow-hidden">
                       <div className="w-full h-full bg-gradient-primary animate-pulse"></div>
                     </div>
                   </div>
-                  <div className="flex items-center justify-between p-2 glass rounded-lg">
+                  <div className="flex items-center justify-between p-2 bg-white rounded-lg shadow-soft">
                     <span className="text-sm text-foreground">Checking compliance</span>
                     <CheckCircle className="w-4 h-4 text-primary" />
                   </div>
@@ -95,8 +95,8 @@ const DocumentServices = () => {
             </div>
             
             {/* Floating elements */}
-            <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-secondary opacity-20 rounded-full blur-xl animate-float"></div>
-            <div className="absolute -bottom-4 -right-4 w-10 h-10 bg-gradient-primary opacity-20 rounded-full blur-lg animate-float" style={{animationDelay: '2s'}}></div>
+            <div className="absolute -top-4 -left-4 w-12 h-12 bg-accent/5 rounded-full blur-xl animate-float"></div>
+            <div className="absolute -bottom-4 -right-4 w-10 h-10 bg-primary/5 rounded-full blur-lg animate-float" style={{animationDelay: '2s'}}></div>
           </div>
         </div>
       </div>

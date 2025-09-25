@@ -42,11 +42,11 @@ const Features = () => {
   ];
 
   return (
-    <section id="features" className="py-24 relative">
+    <section id="features" className="py-24 relative bg-white">
       {/* Background */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-1/4 w-72 h-72 bg-gradient-primary rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-secondary rounded-full blur-3xl"></div>
+      <div className="absolute inset-0 opacity-2">
+        <div className="absolute top-0 left-1/4 w-72 h-72 bg-primary/3 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-accent/3 rounded-full blur-3xl"></div>
       </div>
       
       <div className="container mx-auto px-6 relative z-10">
@@ -66,7 +66,7 @@ const Features = () => {
           {features.map((feature, index) => (
             <Card 
               key={index} 
-              className="group relative glass hover-lift border-white/20"
+              className="group relative bg-white/80 backdrop-blur-sm border border-gray-100 shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1"
             >
               <CardHeader className="space-y-4">
                 <div className={`w-12 h-12 rounded-xl ${feature.gradient} flex items-center justify-center shadow-colored group-hover:scale-110 transition-transform`}>
