@@ -127,21 +127,6 @@ const AssistantTypes = () => {
             );
           })}
         </div>
-
-        <div className="text-center">
-          <div className="glass p-8 rounded-3xl border border-white/20 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4 text-foreground">
-              Weet je niet welke expert je nodig hebt?
-            </h3>
-            <p className="text-muted-foreground mb-6 text-lg">
-              Start een algemene chat en Flumi helpt je de juiste expert te vinden voor je specifieke vraag.
-            </p>
-            <Button size="lg" className="bg-gradient-primary hover:shadow-colored-hover shadow-colored">
-              Start Algemene Chat
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-          </div>
-        </div>
       </div>
     </section>
   );
