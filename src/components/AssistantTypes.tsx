@@ -3,20 +3,16 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { 
   Shield, 
-  FileText, 
   Gavel, 
-  Users, 
-  AlertTriangle, 
   CheckCircle, 
-  Globe, 
-  Lock,
+  Users,
   ArrowRight
 } from "lucide-react";
 
 const AssistantTypes = () => {
   const assistants = [
     {
-      title: "GDPR Compliance Expert",
+      title: "GDPR Consultant",
       description: "Specialistische hulp bij AVG/GDPR implementatie, privacy impact assessments en dataprotectie procedures.",
       icon: Shield,
       gradient: "from-primary to-accent",
@@ -24,53 +20,25 @@ const AssistantTypes = () => {
       popular: true
     },
     {
-      title: "NIS2 Specialist", 
-      description: "Complete ondersteuning voor NIS2-richtlijn compliance, incidentrapportage en cybersecurity governance.",
-      icon: Globe,
-      gradient: "from-cyan to-primary",
-      features: ["Incidentrapportage procedures", "Cybersecurity governance", "Supply chain security", "Risicobeheer"]
-    },
-    {
-      title: "ISO 27001 Consultant",
+      title: "ISO 27001 Consultant", 
       description: "Uitgebreide begeleiding bij ISO 27001 implementatie, certificering en auditvoorbereiding.",
       icon: CheckCircle,
       gradient: "from-accent to-cyan",
       features: ["ISMS implementatie", "Risico assessments", "Auditvoorbereiding", "Controlemaatregelen"]
     },
     {
-      title: "EU AI Act Advisor",
-      description: "Expertise in de nieuwe AI Act vereisten, risicoklassificatie en compliance procedures.",
-      icon: Users,
-      gradient: "from-primary to-purple-500",
-      features: ["AI risicoklassificatie", "Conformiteitsbeoordeling", "Transparantie vereisten", "Markttoezicht"]
-    },
-    {
-      title: "DORA Compliance Helper",
-      description: "Gespecialiseerde ondersteuning voor financiële instellingen bij DORA compliance.",
-      icon: Lock,
-      gradient: "from-cyan to-accent",
-      features: ["ICT-risicobeheer", "Incidentrapportage", "Digital resilience", "Outsourcing oversight"]
-    },
-    {
-      title: "Document Review Specialist",
-      description: "AI-gedreven analyse van beveiligingsbeleid, procedures en contracten voor compliance gaps.",
-      icon: FileText,
-      gradient: "from-accent to-primary",
-      features: ["Beleid analyse", "Contract review", "Gap analysis", "Compliance mapping"]
-    },
-    {
-      title: "Incident Response Coordinator", 
-      description: "24/7 ondersteuning bij cybersecurity incidenten, response planning en forensisch onderzoek.",
-      icon: AlertTriangle,
-      gradient: "from-red-500 to-accent",
-      features: ["Incident handling", "Forensisch onderzoek", "Crisis communicatie", "Recovery planning"]
-    },
-    {
-      title: "Compliance Auditor",
-      description: "Fictieve audits en assessments ter voorbereiding op echte compliance controles.",
+      title: "NIS2 Consultant",
+      description: "Complete ondersteuning voor NIS2-richtlijn compliance, incidentrapportage en cybersecurity governance.",
       icon: Gavel,
-      gradient: "from-purple-500 to-cyan",
-      features: ["Mock audits", "Compliance testing", "Gap identificatie", "Remediation planning"]
+      gradient: "from-cyan to-primary",
+      features: ["Incidentrapportage procedures", "Cybersecurity governance", "Supply chain security", "Risicobeheer"]
+    },
+    {
+      title: "Algemene Consultant",
+      description: "Brede cybersecurity expertise voor alle compliance vraagstukken en EU regelgeving.",
+      icon: Users,
+      gradient: "from-purple-500 to-primary",
+      features: ["Multi-domain expertise", "EU regelgeving kennis", "Risk assessments", "Compliance roadmaps"]
     }
   ];
 
@@ -84,7 +52,7 @@ const AssistantTypes = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <Badge variant="secondary" className="bg-primary/10 text-primary border border-primary/20 px-4 py-2 mb-6">
-            🎯 Gespecialiseerde Assistenten
+            🎯 Gespecialiseerde Consultants
           </Badge>
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
             Kies je{" "}
@@ -93,7 +61,7 @@ const AssistantTypes = () => {
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Elke assistent is getraind op specifieke EU regelgeving en cybersecurity frameworks. 
+            Elke consultant is getraind op specifieke EU regelgeving en cybersecurity frameworks. 
             Krijg exact de expertise die je nodig hebt.
           </p>
         </div>
@@ -149,7 +117,7 @@ const AssistantTypes = () => {
         <div className="text-center">
           <div className="glass p-8 rounded-3xl border border-white/20 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold mb-4 text-foreground">
-              Weet je niet welke assistent je nodig hebt?
+              Weet je niet welke consultant je nodig hebt?
             </h3>
             <p className="text-muted-foreground mb-6 text-lg">
               Start een algemene chat en Flumi helpt je de juiste specialist te vinden voor je specifieke vraag.
