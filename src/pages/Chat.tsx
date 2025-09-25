@@ -228,7 +228,10 @@ const Chat = () => {
                 <input
                   type="text"
                   placeholder="How can I help you today"
-                  className="w-full h-12 pl-10 pr-24 text-base bg-gray-50/50 border border-gray-200/60 rounded-xl shadow-sm focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 placeholder:text-gray-400 backdrop-blur-sm"
+                  className="w-full h-16 pl-10 pr-24 text-base bg-gray-50/50 border-2 border-transparent rounded-xl shadow-sm focus:outline-none focus:border-transparent focus:ring-2 focus:ring-pink-200 placeholder:text-gray-400 backdrop-blur-sm"
+                  style={{
+                    background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, #ec4899, #8b5cf6) border-box'
+                  }}
                 />
                 <div className="absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
                   <button className="h-6 w-6 flex items-center justify-center hover:bg-gray-100 rounded transition-colors">
