@@ -234,7 +234,7 @@ const Chat = () => {
                   <button className="h-6 w-6 flex items-center justify-center hover:bg-gray-100 rounded transition-colors">
                     <Mic className="h-4 w-4 text-gray-400" />
                   </button>
-                  <button className="h-8 w-8 flex items-center justify-center bg-blue-500 hover:bg-blue-600 rounded-full transition-colors">
+                  <button className="h-8 w-8 flex items-center justify-center bg-pink-400 hover:bg-pink-500 rounded-full transition-colors">
                     <Send className="h-4 w-4 text-white" />
                   </button>
                 </div>
