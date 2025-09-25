@@ -15,10 +15,14 @@ const Hero = () => {
     "Analyseer dit cybersecurity document voor risico's"
   ];
 
+  const expertTypes = ["consultant", "auditor", "specialist"];
+
   const [currentText, setCurrentText] = useState("");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
   const [charIndex, setCharIndex] = useState(0);
+
+  const [currentExpertIndex, setCurrentExpertIndex] = useState(0);
 
   useEffect(() => {
     const currentQuestion = questions[currentQuestionIndex];
@@ -45,6 +49,15 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, [currentText, currentQuestionIndex, isTyping, charIndex, questions]);
 
+  // Effect for rotating expert types
+  useEffect(() => {
+    const expertTimer = setInterval(() => {
+      setCurrentExpertIndex((prev) => (prev + 1) % expertTypes.length);
+    }, 2000); // Change every 2 seconds
+
+    return () => clearInterval(expertTimer);
+  }, [expertTypes.length]);
+
   return (
     <section className="pt-32 pb-20 relative overflow-hidden bg-white">
       {/* Background Elements */}
@@ -69,6 +82,13 @@ const Hero = () => {
                   Flumi
                 </span>
               </h1>
+
+              <div className="text-2xl lg:text-4xl font-semibold text-foreground leading-tight">
+                Jouw persoonlijke cybersecurity{" "}
+                <span className="bg-gradient-accent bg-clip-text text-transparent transition-all duration-500">
+                  {expertTypes[currentExpertIndex]}
+                </span>
+              </div>
               
               <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
                 Je AI cybersecurity specialist voor Europese regelgeving, document review, compliance audits en meer
