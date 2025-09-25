@@ -148,7 +148,10 @@ const Hero = () => {
                       type="text"
                       value={currentText}
                       placeholder="Stel je cybersecurity of compliance vraag..."
-                      className="w-full h-16 pl-14 pr-24 text-base glass-strong rounded-2xl shadow-medium text-foreground placeholder:text-muted-foreground border border-white/20"
+                      className="w-full h-16 pl-14 pr-24 text-base glass-strong rounded-2xl shadow-medium text-foreground placeholder:text-muted-foreground border-2"
+                      style={{
+                        background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent))) border-box'
+                      }}
                       readOnly
                     />
                     <div className="absolute left-5 top-1/2 transform -translate-y-1/2">
