@@ -52,58 +52,32 @@ const Hero = () => {
           </div>
           
           {/* Chat Interface Mockup */}
-          <div className="relative max-w-4xl w-full">
+          <div className="relative max-w-2xl w-full">
             {/* Chat Interface Container with 3D perspective */}
             <div className="relative transform rotate-1 hover:rotate-0 transition-transform duration-500">
-              <div className="bg-gradient-to-br from-pink-50 to-white rounded-2xl shadow-2xl overflow-hidden border border-pink-200/30">
+              <div className="bg-gradient-to-br from-pink-50 to-white rounded-xl shadow-xl overflow-hidden border border-pink-200/30">
 
                 {/* Main Chat Window */}
                 <div>
                   {/* macOS Window Header */}
-                  <div className="flex items-center justify-between p-4 border-b border-pink-200/30 bg-pink-50">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                      <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                      <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                  <div className="flex items-center justify-between p-3 border-b border-pink-200/30 bg-pink-50">
+                    <div className="flex items-center space-x-1.5">
+                      <div className="w-2.5 h-2.5 bg-red-400 rounded-full"></div>
+                      <div className="w-2.5 h-2.5 bg-yellow-400 rounded-full"></div>
+                      <div className="w-2.5 h-2.5 bg-green-400 rounded-full"></div>
                     </div>
-                    <div className="text-sm font-medium text-gray-900">Flumi</div>
-                    <div className="w-8 h-8 bg-pink-400 rounded-full flex items-center justify-center">
-                      <Bot className="w-4 h-4 text-white" />
+                    <div className="text-xs font-medium text-gray-900">Flumi</div>
+                    <div className="w-6 h-6 bg-pink-400 rounded-full flex items-center justify-center">
+                      <Bot className="w-3 h-3 text-white" />
                     </div>
                   </div>
 
                   {/* Chat Content Area */}
-                  <div className="p-6 space-y-4 min-h-[400px] bg-gradient-to-b from-pink-50 to-white">
+                  <div className="p-6 bg-gradient-to-b from-pink-50 to-white">
                     {/* Welcome Section */}
-                    <div className="text-center mb-8">
-                      <h1 className="text-2xl font-semibold text-gray-900 mb-2">Hey, I'm Flumi.</h1>
+                    <div className="text-center mb-6">
+                      <h1 className="text-xl font-semibold text-gray-900 mb-2">Hey, I'm Flumi.</h1>
                       <p className="text-gray-600">How can I help you today?</p>
-                    </div>
-
-                    {/* Agent Cards */}
-                    <div className="grid grid-cols-2 gap-3 mb-6">
-                      <div className="bg-white/40 backdrop-blur-sm border border-white/30 rounded-lg p-4 cursor-pointer hover:shadow-lg transition-all">
-                        <div className="flex items-center space-x-3">
-                          <div className="w-8 h-8 rounded-full bg-blue-100/40 flex items-center justify-center">
-                            <Shield className="h-4 w-4 text-blue-600/60" />
-                          </div>
-                          <div>
-                            <h3 className="font-medium text-gray-900 text-sm">ISO 27001 Auditor</h3>
-                            <p className="text-xs text-gray-600">Audit voorbereiding</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="bg-white/40 backdrop-blur-sm border border-white/30 rounded-lg p-4 cursor-pointer hover:shadow-lg transition-all">
-                        <div className="flex items-center space-x-3">
-                          <div className="w-8 h-8 rounded-full bg-purple-100/40 flex items-center justify-center">
-                            <Bot className="h-4 w-4 text-purple-600/60" />
-                          </div>
-                          <div>
-                            <h3 className="font-medium text-gray-900 text-sm">Security Consultant</h3>
-                            <p className="text-xs text-gray-600">Strategisch advies</p>
-                          </div>
-                        </div>
-                      </div>
                     </div>
                   </div>
 
@@ -113,7 +87,7 @@ const Hero = () => {
                       <input
                         type="text"
                         placeholder="How can I help you today"
-                        className="w-full h-12 pl-10 pr-20 text-sm bg-gray-50/50 border-2 border-transparent rounded-xl shadow-sm backdrop-blur-sm"
+                        className="w-full h-16 pl-10 pr-20 text-base bg-gray-50/50 border-2 border-transparent rounded-xl shadow-sm backdrop-blur-sm"
                         style={{
                           background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, #ec4899, #8b5cf6) border-box'
                         }}
@@ -136,8 +110,8 @@ const Hero = () => {
               </div>
 
               {/* Floating elements for extra depth */}
-              <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-pink-400/20 rounded-full blur-xl"></div>
-              <div className="absolute -top-2 -left-2 w-16 h-16 bg-purple-400/20 rounded-full blur-lg"></div>
+              <div className="absolute -bottom-3 -right-3 w-12 h-12 bg-pink-400/20 rounded-full blur-lg"></div>
+              <div className="absolute -top-2 -left-2 w-10 h-10 bg-purple-400/20 rounded-full blur-md"></div>
             </div>
           </div>
         </div>
