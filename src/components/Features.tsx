@@ -44,9 +44,11 @@ const Features = () => {
   return (
     <section id="features" className="py-24 relative bg-white">
       {/* Background */}
-      <div className="absolute inset-0 opacity-2">
-        <div className="absolute top-0 left-1/4 w-72 h-72 bg-primary/3 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-accent/3 rounded-full blur-3xl"></div>
+      <div className="absolute inset-0 opacity-3">
+        <div className="absolute top-0 left-1/4 w-72 h-72 bg-primary/4 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-accent/4 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 right-10 w-48 h-48 bg-cyan/3 rounded-full blur-2xl"></div>
+        <div className="absolute bottom-1/3 left-10 w-56 h-56 bg-primary/3 rounded-full blur-2xl"></div>
       </div>
       
       <div className="container mx-auto px-6 relative z-10">

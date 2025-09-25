@@ -4,17 +4,23 @@ import { ArrowRight, Sparkles } from "lucide-react";
 
 const CTA = () => {
   return (
-    <section className="py-24 bg-background">
-      <div className="container mx-auto px-6">
-        <Card className="relative overflow-hidden bg-background/80 backdrop-blur-xl shadow-glass border border-border/30">
-          <div className="absolute inset-0 opacity-20">
-            <div className="w-full h-full bg-gradient-primary/5 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%23000000%22 fill-opacity=%220.03%22%3E%3Ccircle cx=%2230%22 cy=%2230%22 r=%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+    <section className="py-24 bg-white relative">
+      {/* Subtle background elements */}
+      <div className="absolute inset-0 opacity-3">
+        <div className="absolute top-0 left-1/4 w-60 h-60 bg-primary/4 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-accent/4 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="container mx-auto px-6 relative z-10">
+        <Card className="relative overflow-hidden bg-white/80 backdrop-blur-sm shadow-soft border border-gray-100">
+          <div className="absolute inset-0 opacity-2">
+            <div className="w-full h-full bg-primary/2 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%23000000%22 fill-opacity=%220.02%22%3E%3Ccircle cx=%2230%22 cy=%2230%22 r=%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
           </div>
           
           <CardContent className="relative z-10 py-16 px-8 text-center">
             <div className="space-y-8 max-w-3xl mx-auto">
               <div className="flex justify-center">
-                <div className="flex items-center space-x-2 bg-background/60 backdrop-blur-sm rounded-full px-4 py-2 border border-border/50 shadow-soft">
+                <div className="flex items-center space-x-2 bg-white/60 backdrop-blur-sm rounded-full px-4 py-2 border border-gray-200 shadow-soft">
                   <div className="w-4 h-4 rounded-full bg-gradient-primary flex items-center justify-center">
                     <Sparkles className="w-3 h-3 text-white" />
                   </div>
@@ -42,7 +48,7 @@ const CTA = () => {
                 <Button 
                   variant="outline" 
                   size="lg" 
-                  className="text-lg px-8 py-4 bg-background/80 backdrop-blur-sm border-border/50 hover:bg-background"
+                  className="text-lg px-8 py-4 bg-white/80 backdrop-blur-sm border-gray-200 hover:bg-white shadow-soft"
                 >
                   Vraag een demo aan
                 </Button>
@@ -65,9 +71,9 @@ const CTA = () => {
             </div>
           </CardContent>
           
-          {/* Decorative glass elements */}
-          <div className="absolute top-8 right-8 w-20 h-20 bg-gradient-primary/10 rounded-full blur-2xl"></div>
-          <div className="absolute bottom-8 left-8 w-32 h-32 bg-gradient-accent/5 rounded-full blur-2xl"></div>
+          {/* Decorative elements */}
+          <div className="absolute top-8 right-8 w-20 h-20 bg-primary/5 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-8 left-8 w-32 h-32 bg-accent/3 rounded-full blur-2xl"></div>
         </Card>
       </div>
     </section>

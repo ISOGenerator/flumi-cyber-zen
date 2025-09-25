@@ -46,7 +46,9 @@ const AssistantTypes = () => {
     <section className="py-24 relative bg-white">
       {/* Background */}
       <div className="absolute inset-0 opacity-3">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/3 via-transparent to-cyan/3"></div>
+        <div className="absolute top-10 right-20 w-80 h-80 bg-primary/4 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 left-16 w-64 h-64 bg-cyan/4 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/3 left-1/3 w-48 h-48 bg-accent/3 rounded-full blur-2xl"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">

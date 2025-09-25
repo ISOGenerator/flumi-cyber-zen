@@ -64,11 +64,12 @@ const Pricing = () => {
   ];
 
   return (
-    <section className="py-32 relative overflow-hidden">
+    <section className="py-32 relative overflow-hidden bg-white">
       {/* Background Elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-32 left-20 w-64 h-64 bg-gradient-accent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-32 right-20 w-80 h-80 bg-gradient-secondary rounded-full blur-3xl"></div>
+      <div className="absolute inset-0 opacity-3">
+        <div className="absolute top-32 left-20 w-64 h-64 bg-accent/4 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-32 right-20 w-80 h-80 bg-primary/4 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-52 h-52 bg-cyan/3 rounded-full blur-2xl"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">

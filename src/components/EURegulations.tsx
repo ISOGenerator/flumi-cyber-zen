@@ -20,7 +20,13 @@ const EURegulations = () => {
 
   return (
     <section className="py-16 relative bg-white">
-      <div className="container mx-auto px-6">
+      {/* Subtle background elements */}
+      <div className="absolute inset-0 opacity-3">
+        <div className="absolute top-0 right-0 w-72 h-72 bg-accent/4 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-56 h-56 bg-primary/4 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Animation/Visual Left */}
           <div className="relative">

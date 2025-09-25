@@ -21,7 +21,14 @@ const DocumentServices = () => {
 
   return (
     <section className="py-16 relative bg-white">
-      <div className="container mx-auto px-6">
+      {/* Subtle background elements */}
+      <div className="absolute inset-0 opacity-3">
+        <div className="absolute top-0 left-0 w-80 h-80 bg-cyan/4 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-accent/4 rounded-full blur-3xl"></div>
+        <div className="absolute top-2/3 left-2/3 w-40 h-40 bg-primary/3 rounded-full blur-2xl"></div>
+      </div>
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Left */}
           <div className="space-y-6">
