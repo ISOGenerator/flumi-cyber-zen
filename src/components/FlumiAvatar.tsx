@@ -24,21 +24,6 @@ const FlumiAvatar = ({
     "rounded-full overflow-hidden bg-gradient-primary shadow-colored": variant === "chat",
     "hover:scale-105 hover:drop-shadow-lg": variant === "hero"
   }, sizeClasses[size], className);
-  return (
-    <div className={avatarClasses}>
-      <img
-        src={flumiAvatar}
-        alt="Flumi AI Assistant"
-        className="w-full h-full object-cover"
-        onError={(e) => {
-          if (showFallback) {
-            e.currentTarget.style.display = 'none';
-            e.currentTarget.nextElementSibling?.classList.remove('hidden');
-          }
-        }}
-      />
-      <Shield className={cn("hidden text-primary", sizeClasses[size].replace('w-', 'w-').replace('h-', 'h-'))} />
-    </div>
-  );
+  return;
 };
 export default FlumiAvatar;
