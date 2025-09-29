@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/hooks/use-auth";
 import { useAgents, Agent } from "@/hooks/use-agents";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -85,9 +86,11 @@ const MessageBubble = ({ message, isTyping, onTypingComplete }: {
 };
 
 const Chat = () => {
+  const { user } = useAuth();
   const { agents, loading } = useAgents();
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [selectedAgent, setSelectedAgent] = useState<string | null>(null);
+  const [currentConversationId, setCurrentConversationId] = useState<string | null>(null);
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -132,28 +135,93 @@ const Chat = () => {
     scrollToBottom();
   }, [messages]);
 
-  const handleAgentSelect = (agentType: string) => {
+  const createNewConversation = async (agentId: string) => {
+    if (!user) return null;
+    
+    try {
+      const agent = agents.find(a => a.type === agentId);
+      const title = `Chat met ${agent?.title || 'Agent'}`;
+      
+      const { data, error } = await supabase
+        .from('conversations')
+        .insert({
+          user_id: user.id,
+          agent_id: agentId,
+          title
+        })
+        .select()
+        .single();
+
+      if (error) throw error;
+      return data.id;
+    } catch (error) {
+      console.error('Error creating conversation:', error);
+      toast({
+        title: "Fout",
+        description: "Kon nieuw gesprek niet aanmaken.",
+        variant: "destructive"
+      });
+      return null;
+    }
+  };
+
+  const saveMessage = async (conversationId: string, role: 'user' | 'assistant', content: string) => {
+    try {
+      const { error } = await supabase
+        .from('messages')
+        .insert({
+          conversation_id: conversationId,
+          role,
+          content
+        });
+
+      if (error) throw error;
+    } catch (error) {
+      console.error('Error saving message:', error);
+    }
+  };
+
+  const handleAgentSelect = async (agentType: string) => {
     setSelectedAgent(agentType);
     setMessages([]);
+    
+    // Create new conversation when selecting an agent
+    const conversationId = await createNewConversation(agentType);
+    setCurrentConversationId(conversationId);
   };
 
   const handleNewChat = () => {
     setSelectedAgent(null);
+    setCurrentConversationId(null);
     setMessages([]);
     setInputMessage('');
   };
 
   const sendMessage = async () => {
-    if (!inputMessage.trim() || !selectedAgent) return;
+    if (!inputMessage.trim() || !selectedAgent || !user) return;
+    
+    // Create conversation if doesn't exist
+    let conversationId = currentConversationId;
+    if (!conversationId) {
+      conversationId = await createNewConversation(selectedAgent);
+      if (!conversationId) return;
+      setCurrentConversationId(conversationId);
+    }
+    
     const userMessage: Message = {
       id: Date.now().toString(),
       role: 'user',
       content: inputMessage.trim(),
       timestamp: new Date()
     };
+    
     setMessages(prev => [...prev, userMessage]);
     setInputMessage('');
     setIsLoading(true);
+    
+    // Save user message to database
+    await saveMessage(conversationId, 'user', userMessage.content);
+    
     try {
       const {
         data,
@@ -177,6 +245,9 @@ const Chat = () => {
       };
       setMessages(prev => [...prev, aiMessage]);
       setTypingMessageId(aiMessage.id);
+      
+      // Save AI message to database
+      await saveMessage(conversationId, 'assistant', data.response);
     } catch (error) {
       console.error('Error sending message:', error);
       toast({
