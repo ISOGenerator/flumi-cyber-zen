@@ -165,13 +165,13 @@ const Auth = () => {
             <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center shadow-colored">
               <Shield className="w-6 h-6 text-primary-foreground" />
             </div>
-            <span className="text-2xl font-bold text-foreground">Flumi</span>
+            <span className="text-2xl font-semibold text-foreground">Flumi</span>
           </Link>
         </div>
 
         <Card className="glass-strong shadow-large">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl font-bold text-foreground">
+            <CardTitle className="text-2xl font-semibold text-foreground">
               {isSignUp ? "Account maken" : "Inloggen"}
             </CardTitle>
             <CardDescription className="text-muted-foreground">

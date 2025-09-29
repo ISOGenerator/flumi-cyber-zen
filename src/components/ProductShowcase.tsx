@@ -21,7 +21,7 @@ const ProductShowcase = () => {
                 🚀 Dashboard 2.0
               </Badge>
               
-              <h2 className="text-5xl lg:text-6xl font-bold leading-tight">
+              <h2 className="text-5xl lg:text-6xl font-semibold leading-tight">
                 One dashboard.{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   Infinite possibilities.
@@ -66,7 +66,7 @@ const ProductShowcase = () => {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground">Security Score</div>
-                    <div className="text-2xl font-bold text-primary">98%</div>
+                    <div className="text-2xl font-semibold text-primary">98%</div>
                   </div>
                 </div>
               </Card>
@@ -80,7 +80,7 @@ const ProductShowcase = () => {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground">Threats Blocked</div>
-                    <div className="text-2xl font-bold text-cyan">1,247</div>
+                    <div className="text-2xl font-semibold text-cyan">1,247</div>
                   </div>
                 </div>
               </Card>
@@ -94,7 +94,7 @@ const ProductShowcase = () => {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground">Active Users</div>
-                    <div className="text-2xl font-bold text-accent">847</div>
+                    <div className="text-2xl font-semibold text-accent">847</div>
                   </div>
                 </div>
               </Card>
@@ -126,7 +126,7 @@ const ProductShowcase = () => {
                         <BarChart3 className="w-4 h-4 text-primary" />
                         <span className="text-white/80 text-sm">Incidents</span>
                       </div>
-                      <div className="text-2xl font-bold text-white">23</div>
+                      <div className="text-2xl font-semibold text-white">23</div>
                       <div className="text-green-400 text-xs">↓ 12% from last week</div>
                     </div>
                     
@@ -135,7 +135,7 @@ const ProductShowcase = () => {
                         <Shield className="w-4 h-4 text-cyan" />
                         <span className="text-white/80 text-sm">Compliance</span>
                       </div>
-                      <div className="text-2xl font-bold text-white">94%</div>
+                      <div className="text-2xl font-semibold text-white">94%</div>
                       <div className="text-green-400 text-xs">↑ 3% from last month</div>
                     </div>
                     
@@ -144,7 +144,7 @@ const ProductShowcase = () => {
                         <Zap className="w-4 h-4 text-accent" />
                         <span className="text-white/80 text-sm">Response</span>
                       </div>
-                      <div className="text-2xl font-bold text-white">1.2s</div>
+                      <div className="text-2xl font-semibold text-white">1.2s</div>
                       <div className="text-green-400 text-xs">↓ 0.3s faster</div>
                     </div>
                   </div>

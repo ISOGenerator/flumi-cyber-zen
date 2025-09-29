@@ -10,7 +10,7 @@ const Footer = () => {
               <div className="w-8 h-8 rounded-lg bg-gradient-primary flex items-center justify-center shadow-colored">
                 <Shield className="w-5 h-5 text-white" />
               </div>
-              <span className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+              <span className="text-2xl font-semibold bg-gradient-primary bg-clip-text text-transparent">
                 Flumi.io
               </span>
             </div>

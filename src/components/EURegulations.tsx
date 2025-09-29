@@ -39,7 +39,7 @@ const EURegulations = () => {
                 <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 shadow-soft">
                   <Shield className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground">EU Compliance Hub</h3>
+                <h3 className="text-xl font-semibold text-foreground">EU Compliance Hub</h3>
               </div>
               
               <div className="grid grid-cols-2 gap-4">
@@ -70,7 +70,7 @@ const EURegulations = () => {
               🇪🇺 EU Regelgeving
             </Badge>
             
-            <h2 className="text-3xl lg:text-4xl font-bold">
+            <h2 className="text-3xl lg:text-4xl font-semibold">
               Altijd{" "}
               <span className="bg-gradient-primary bg-clip-text text-transparent">
                 Compliant

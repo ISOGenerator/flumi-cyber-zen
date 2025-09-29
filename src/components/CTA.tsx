@@ -31,7 +31,7 @@ const CTA = () => {
                 </div>
               </div>
               
-              <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+              <h2 className="text-4xl lg:text-5xl font-semibold text-foreground leading-tight">
                 Versterk je cybersecurity met{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">Flumi</span>
               </h2>

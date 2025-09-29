@@ -78,7 +78,7 @@ const Pricing = () => {
             💰 Flexible Pricing
           </Badge>
           
-          <h2 className="text-5xl lg:text-6xl font-bold leading-tight">
+          <h2 className="text-5xl lg:text-6xl font-semibold leading-tight">
             Choose your{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
               security plan
@@ -133,11 +133,11 @@ const Pricing = () => {
                     </div>
                   </div>
                   
-                  <h3 className="text-2xl font-bold text-foreground mb-2">{plan.name}</h3>
+                  <h3 className="text-2xl font-semibold text-foreground mb-2">{plan.name}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{plan.description}</p>
                   
                   <div className="flex items-baseline justify-center mt-6">
-                    <span className="text-5xl font-bold text-foreground">{plan.price}</span>
+                    <span className="text-5xl font-semibold text-foreground">{plan.price}</span>
                     <span className="text-muted-foreground ml-2">{plan.period}</span>
                   </div>
                 </CardHeader>

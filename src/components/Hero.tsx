@@ -60,7 +60,7 @@ const Hero = () => {
               </Badge>
               
               <div className="flex flex-col lg:flex-row items-center justify-center space-y-6 lg:space-y-0 lg:space-x-8">
-                <h1 className="text-5xl lg:text-7xl font-bold leading-tight text-center lg:text-left text-gray-900">
+                <h1 className="text-5xl lg:text-7xl font-semibold leading-tight text-center lg:text-left text-gray-900">
                   Maak kennis met{" "}
                   <span className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
                     Flumi

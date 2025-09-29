@@ -56,7 +56,7 @@ const AssistantTypes = () => {
           <Badge variant="secondary" className="bg-primary/10 text-primary border border-primary/20 px-4 py-2 mb-6">
             🎯 Gespecialiseerde Consultants
           </Badge>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-4xl lg:text-5xl font-semibold mb-6">
             Kies je{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
               Cybersecurity Expert

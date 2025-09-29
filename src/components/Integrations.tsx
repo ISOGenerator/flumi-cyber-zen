@@ -79,7 +79,7 @@ const Integrations = () => {
             🔗 200+ Integrations
           </Badge>
           
-          <h2 className="text-5xl lg:text-6xl font-bold leading-tight max-w-4xl mx-auto">
+          <h2 className="text-5xl lg:text-6xl font-semibold leading-tight max-w-4xl mx-auto">
             Connects with your{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
               favorite tools
@@ -119,7 +119,7 @@ const Integrations = () => {
                     }}
                   />
                   <div className="fallback hidden w-full h-full bg-gradient-primary rounded-xl items-center justify-center">
-                    <span className="text-white font-bold text-lg">
+                    <span className="text-white font-semibold text-lg">
                       {integration.name.charAt(0)}
                     </span>
                   </div>
@@ -141,7 +141,7 @@ const Integrations = () => {
         {/* Bottom Section */}
         <div className="text-center mt-16 space-y-8">
           <div className="glass rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-foreground mb-4">
+            <h3 className="text-2xl font-semibold text-foreground mb-4">
               Don't see your tool?
             </h3>
             <p className="text-muted-foreground mb-6">

@@ -53,7 +53,7 @@ const Features = () => {
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center space-y-6 mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
+          <h2 className="text-4xl lg:text-5xl font-semibold text-foreground">
             Alles voor{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
               EU Cybersecurity Compliance

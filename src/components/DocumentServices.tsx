@@ -32,7 +32,7 @@ const DocumentServices = () => {
               📋 Document Intelligence
             </Badge>
             
-            <h2 className="text-3xl lg:text-4xl font-bold">
+            <h2 className="text-3xl lg:text-4xl font-semibold">
               AI-Gedreven{" "}
               <span className="bg-gradient-primary bg-clip-text text-transparent">
                 Document Analyse
@@ -69,7 +69,7 @@ const DocumentServices = () => {
                 <div className="w-16 h-16 bg-gradient-secondary rounded-full flex items-center justify-center mx-auto mb-4 shadow-soft">
                   <FileText className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground">Document Processor</h3>
+                <h3 className="text-xl font-semibold text-foreground">Document Processor</h3>
               </div>
               
               {/* Upload simulation */}
