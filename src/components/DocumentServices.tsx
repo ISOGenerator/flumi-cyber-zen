@@ -5,21 +5,21 @@ import { FileText, Search, CheckCircle, Upload, Eye, ArrowRight, Zap } from "luc
 const DocumentServices = () => {
   const features = [{
     icon: Search,
-    text: "AI Polisanalyse"
+    text: "AI Polis Analyse"
   }, {
     icon: CheckCircle,
-    text: "Dekkingscheck"
+    text: "Dekking Check"
   }, {
     icon: Eye,
-    text: "Risico Assessment"
+    text: "Risico Beoordeling"
   }, {
     icon: Zap,
-    text: "Instant Resultaten"
+    text: "Direct Resultaat"
   }];
   return <section className="py-16 relative bg-white">
       {/* Subtle background elements */}
       <div className="absolute inset-0 opacity-3">
-        <div className="absolute top-0 left-0 w-80 h-80 bg-cyan/4 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-0 w-80 h-80 bg-primary/4 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-0 w-64 h-64 bg-accent/4 rounded-full blur-3xl"></div>
         <div className="absolute top-2/3 left-2/3 w-40 h-40 bg-primary/3 rounded-full blur-2xl"></div>
       </div>
@@ -29,19 +29,19 @@ const DocumentServices = () => {
           {/* Text Left */}
           <div className="space-y-6">
             <Badge variant="secondary" className="bg-primary/10 text-primary border border-primary/20 px-4 py-2">
-              📋 Polisanalyse
+              📋 Polis Intelligentie
             </Badge>
             
             <h2 className="text-3xl lg:text-4xl font-semibold">
               AI-Gedreven{" "}
               <span className="bg-gradient-primary bg-clip-text text-transparent">
-                Polisanalyse
+                Polis Analyse
               </span>
             </h2>
             
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Upload je polisdocumenten en krijg binnen minuten een professionele analyse 
-              met dekkingsgaps, risico's en concrete aanbevelingen voor betere verzekeringsbescherming.
+              Upload je verzekeringspolissen en krijg binnen minuten een professionele analyse 
+              met dekkingsgaps, risico's en concrete aanbevelingen voor betere bescherming.
             </p>
 
             <div className="grid grid-cols-2 gap-4">
@@ -62,33 +62,33 @@ const DocumentServices = () => {
           {/* Animation/Visual Right */}
           <div className="relative">
             {/* Background section behind document processor */}
-            <div className="absolute inset-0 -m-6 bg-gradient-to-bl from-cyan/4 to-primary/3 rounded-3xl blur-xl opacity-60"></div>
+            <div className="absolute inset-0 -m-6 bg-gradient-to-bl from-primary/4 to-accent/3 rounded-3xl blur-xl opacity-60"></div>
             
             <div className="bg-gray-50/50 p-8 rounded-3xl border border-gray-100 shadow-soft relative z-10">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-gradient-secondary rounded-full flex items-center justify-center mx-auto mb-4 shadow-soft">
                   <FileText className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground">Polisdocument Processor</h3>
+                <h3 className="text-xl font-semibold text-foreground">Polis Processor</h3>
               </div>
               
               {/* Upload simulation */}
               <div className="space-y-4">
                 <div className="bg-white p-4 rounded-xl border-2 border-dashed border-primary/30 text-center hover:border-primary/60 transition-colors shadow-soft">
                   <Upload className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <p className="text-sm text-muted-foreground">Drop je polisdocument hier</p>
+                  <p className="text-sm text-muted-foreground">Drop je polis hier</p>
                 </div>
                 
                 {/* Processing steps */}
                 <div className="space-y-2">
                   <div className="flex items-center justify-between p-2 bg-white rounded-lg shadow-soft">
-                    <span className="text-sm text-foreground">Analyseren van inhoud</span>
+                    <span className="text-sm text-foreground">Analyseer inhoud</span>
                     <div className="w-6 h-1 bg-primary/20 rounded-full overflow-hidden">
                       <div className="w-full h-full bg-gradient-primary animate-pulse"></div>
                     </div>
                   </div>
                   <div className="flex items-center justify-between p-2 bg-white rounded-lg shadow-soft">
-                    <span className="text-sm text-foreground">Controleren dekking</span>
+                    <span className="text-sm text-foreground">Controleer dekking</span>
                     <CheckCircle className="w-4 h-4 text-primary" />
                   </div>
                 </div>

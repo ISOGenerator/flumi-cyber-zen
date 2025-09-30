@@ -32,12 +32,12 @@ const CTA = () => {
               </div>
               
               <h2 className="text-4xl lg:text-5xl font-semibold text-foreground leading-tight">
-                Versterk je cybersecurity met{" "}
-                <span className="bg-gradient-primary bg-clip-text text-transparent">Flumi</span>
+                Versterk je verzekeringen met{" "}
+                <span className="bg-gradient-primary bg-clip-text text-transparent">PolissBuddy</span>
               </h2>
               
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Sluit je aan bij duizenden bedrijven die hun cybersecurity al hebben getransformeerd met Flumi's AI-gestuurde platform.
+                Sluit je aan bij duizenden mensen die hun verzekeringen al hebben geoptimaliseerd met PolissBuddy's AI-gestuurde platform.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
