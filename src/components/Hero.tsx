@@ -42,7 +42,7 @@ const Hero = () => {
 
     return () => clearInterval(expertTimer);
   }, [expertTypes.length]);
-    return <section className="pt-32 pb-20 relative overflow-hidden bg-gradient-to-b from-blue-50 to-white">
+  return <section className="pt-32 pb-20 relative overflow-hidden bg-gradient-to-b from-blue-50 to-white">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
@@ -60,11 +60,9 @@ const Hero = () => {
               </Badge>
               
               <div className="flex flex-col lg:flex-row items-center justify-center space-y-6 lg:space-y-0 lg:space-x-8">
-                <h1 className="text-5xl lg:text-7xl font-semibold leading-tight text-center lg:text-left text-gray-900">
+                <h1 className="text-5xl font-semibold leading-tight text-center lg:text-left text-gray-900 lg:text-6xl">
                   Maak kennis met{" "}
-                  <span className="bg-gradient-primary bg-clip-text text-transparent">
-                    PolissBuddy
-                  </span>
+                  <span className="bg-gradient-primary bg-clip-text text-transparent">PolisBuddy</span>
                 </h1>
                 
                 
