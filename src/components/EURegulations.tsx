@@ -4,21 +4,21 @@ import { Button } from "@/components/ui/button";
 import { Shield, Globe, Brain, Building2, ArrowRight, CheckCircle } from "lucide-react";
 const EURegulations = () => {
   const regulations = [{
-    name: "GDPR",
+    name: "WVW",
     status: "Actief",
     color: "text-green-600"
   }, {
-    name: "NIS2",
-    status: "2024",
-    color: "text-orange-600"
+    name: "AOW",
+    status: "Actief",
+    color: "text-green-600"
   }, {
-    name: "AI Act",
-    status: "2025-2027",
+    name: "Zvw",
+    status: "Actief",
+    color: "text-blue-600"
+  }, {
+    name: "WIA",
+    status: "Actief",
     color: "text-purple-600"
-  }, {
-    name: "DORA",
-    status: "Jan 2025",
-    color: "text-cyan-600"
   }];
   return <section className="py-16 relative bg-white">
       {/* Subtle background elements */}
@@ -39,7 +39,7 @@ const EURegulations = () => {
                 <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 shadow-soft">
                   <Shield className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground">EU Compliance Hub</h3>
+                <h3 className="text-xl font-semibold text-foreground">Nederlandse Verzekeringen</h3>
               </div>
               
               <div className="grid grid-cols-2 gap-4">
@@ -52,7 +52,7 @@ const EURegulations = () => {
               <div className="mt-6 text-center">
                 <div className="flex items-center justify-center space-x-2 text-sm text-muted-foreground">
                   <CheckCircle className="w-4 h-4 text-primary" />
-                  <span>Real-time updates</span>
+                  <span>Live wetgeving updates</span>
                 </div>
               </div>
             </div>
@@ -67,34 +67,34 @@ const EURegulations = () => {
           {/* Text Right */}
           <div className="space-y-6">
             <Badge variant="secondary" className="bg-primary/10 text-primary border border-primary/20 px-4 py-2">
-              🇪🇺 EU Regelgeving
+              🇳🇱 Nederlandse Regelgeving
             </Badge>
             
             <h2 className="text-3xl lg:text-4xl font-semibold">
               Altijd{" "}
               <span className="bg-gradient-primary bg-clip-text text-transparent">
-                Compliant
+                Up-to-date
               </span>{" "}
-              met EU Wet- en Regelgeving
+              met Nederlandse Verzekeringswetten
             </h2>
             
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Van GDPR tot de nieuwe AI Act - Flumi houdt je op de hoogte van alle EU regelgeving 
-              en helpt je compliant te blijven met real-time updates en praktische begeleiding.
+              Van WVW tot Zvw - PolissBuddy houdt je op de hoogte van alle Nederlandse verzekeringswetten 
+              en helpt je de juiste keuzes maken met real-time updates en praktisch advies.
             </p>
 
             <div className="space-y-3">
               <div className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-primary mr-3" />
-                <span className="text-foreground">Complete EU regelgeving database</span>
+                <span className="text-foreground">Complete Nederlandse verzekeringswetten database</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-primary mr-3" />
-                <span className="text-foreground">Automatische compliance checks</span>
+                <span className="text-foreground">Automatische dekkingschecks</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-primary mr-3" />
-                <span className="text-foreground">Implementatie roadmaps</span>
+                <span className="text-foreground">Persoonlijke verzekeringsadvies</span>
               </div>
             </div>
 

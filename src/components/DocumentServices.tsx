@@ -5,16 +5,16 @@ import { FileText, Search, CheckCircle, Upload, Eye, ArrowRight, Zap } from "luc
 const DocumentServices = () => {
   const features = [{
     icon: Search,
-    text: "AI Gap Analysis"
+    text: "AI Polisanalyse"
   }, {
     icon: CheckCircle,
-    text: "Compliance Check"
+    text: "Dekkingscheck"
   }, {
     icon: Eye,
-    text: "Risk Assessment"
+    text: "Risico Assessment"
   }, {
     icon: Zap,
-    text: "Instant Results"
+    text: "Instant Resultaten"
   }];
   return <section className="py-16 relative bg-white">
       {/* Subtle background elements */}
@@ -29,19 +29,19 @@ const DocumentServices = () => {
           {/* Text Left */}
           <div className="space-y-6">
             <Badge variant="secondary" className="bg-primary/10 text-primary border border-primary/20 px-4 py-2">
-              📋 Document Intelligence
+              📋 Polisanalyse
             </Badge>
             
             <h2 className="text-3xl lg:text-4xl font-semibold">
               AI-Gedreven{" "}
               <span className="bg-gradient-primary bg-clip-text text-transparent">
-                Document Analyse
+                Polisanalyse
               </span>
             </h2>
             
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Upload je cybersecurity documenten en krijg binnen minuten een professionele analyse 
-              met compliance gaps, risico's en concrete aanbevelingen.
+              Upload je polisdocumenten en krijg binnen minuten een professionele analyse 
+              met dekkingsgaps, risico's en concrete aanbevelingen voor betere verzekeringsbescherming.
             </p>
 
             <div className="grid grid-cols-2 gap-4">
@@ -69,26 +69,26 @@ const DocumentServices = () => {
                 <div className="w-16 h-16 bg-gradient-secondary rounded-full flex items-center justify-center mx-auto mb-4 shadow-soft">
                   <FileText className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground">Document Processor</h3>
+                <h3 className="text-xl font-semibold text-foreground">Polisdocument Processor</h3>
               </div>
               
               {/* Upload simulation */}
               <div className="space-y-4">
                 <div className="bg-white p-4 rounded-xl border-2 border-dashed border-primary/30 text-center hover:border-primary/60 transition-colors shadow-soft">
                   <Upload className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <p className="text-sm text-muted-foreground">Drop your document here</p>
+                  <p className="text-sm text-muted-foreground">Drop je polisdocument hier</p>
                 </div>
                 
                 {/* Processing steps */}
                 <div className="space-y-2">
                   <div className="flex items-center justify-between p-2 bg-white rounded-lg shadow-soft">
-                    <span className="text-sm text-foreground">Analyzing content</span>
+                    <span className="text-sm text-foreground">Analyseren van inhoud</span>
                     <div className="w-6 h-1 bg-primary/20 rounded-full overflow-hidden">
                       <div className="w-full h-full bg-gradient-primary animate-pulse"></div>
                     </div>
                   </div>
                   <div className="flex items-center justify-between p-2 bg-white rounded-lg shadow-soft">
-                    <span className="text-sm text-foreground">Checking compliance</span>
+                    <span className="text-sm text-foreground">Controleren dekking</span>
                     <CheckCircle className="w-4 h-4 text-primary" />
                   </div>
                 </div>

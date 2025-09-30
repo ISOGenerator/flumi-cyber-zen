@@ -13,32 +13,32 @@ const AssistantTypes = () => {
   const assistants = [
     {
       title: "Standaard Assistant",
-      description: "Algemene cybersecurity expertise voor alle vraagstukken en EU regelgeving compliance.",
+      description: "Algemene verzekeringsexpertise voor alle vraagstukken en polisadvies.",
       icon: Users,
       gradient: "from-primary to-accent",
-      features: ["Multi-domain expertise", "EU regelgeving kennis", "Risk assessments", "Compliance roadmaps"],
+      features: ["Multi-verzekering expertise", "Nederlandse regelgeving", "Risico assessments", "Polisadvies"],
       popular: true
     },
     {
-      title: "Consultant", 
-      description: "Strategische begeleiding bij cybersecurity transformatie en compliance implementatie.",
+      title: "Polisexpert", 
+      description: "Gespecialiseerde begeleiding bij polisanalyse en voorwaardenbeoordeling.",
       icon: CheckCircle,
       gradient: "from-accent to-cyan",
-      features: ["Strategic planning", "Implementation guidance", "Best practices", "Change management"]
+      features: ["Polisanalyse", "Voorwaarden uitleg", "Dekkingsgaps", "Aanbevelingen"]
     },
     {
-      title: "Auditor",
-      description: "Fictieve audits en compliance assessments ter voorbereiding op echte controles.",
+      title: "Schadespecialist",
+      description: "Professionele hulp bij schademeldingen en claims procedures.",
       icon: Gavel,
       gradient: "from-cyan to-primary",
-      features: ["Mock audits", "Compliance testing", "Gap analysis", "Remediation planning"]
+      features: ["Schademeldingen", "Claims begeleiding", "Procedure uitleg", "Documenten hulp"]
     },
     {
-      title: "Specialist",
-      description: "Diepgaande technische expertise voor specifieke cybersecurity domeinen.",
+      title: "Vergelijkingsexpert",
+      description: "Diepgaande expertise voor vergelijken van verschillende verzekeringen.",
       icon: Shield,
       gradient: "from-purple-500 to-primary",
-      features: ["Technical expertise", "Specialized knowledge", "Deep analysis", "Solution design"]
+      features: ["Verzekering vergelijken", "Prijs-kwaliteit analyse", "Persoonlijk advies", "Beste keuze"]
     }
   ];
 
@@ -54,16 +54,16 @@ const AssistantTypes = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <Badge variant="secondary" className="bg-primary/10 text-primary border border-primary/20 px-4 py-2 mb-6">
-            🎯 Gespecialiseerde Consultants
+            🎯 Gespecialiseerde Adviseurs
           </Badge>
           <h2 className="text-4xl lg:text-5xl font-semibold mb-6">
             Kies je{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
-              Cybersecurity Expert
+              Verzekeringsexpert
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Elke consultant is getraind op specifieke EU regelgeving en cybersecurity frameworks. 
+            Elke adviseur is getraind op specifieke Nederlandse verzekeringen en regelgeving. 
             Krijg exact de expertise die je nodig hebt.
           </p>
         </div>
