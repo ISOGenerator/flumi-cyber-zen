@@ -114,7 +114,7 @@ const Hero = () => {
                 {/* Chat Content Area */}
                 <div className="p-8 bg-gradient-to-b from-white/10 to-transparent min-h-[200px] py-[32px]">
                   <div className="text-center mb-8">
-                    <h1 className="text-3xl font-semibold text-gray-900 mb-3">Hey, ik ben PolissBuddy</h1>
+                    <h1 className="text-3xl font-semibold text-gray-900 mb-3">Hey, ik ben PolisBuddy</h1>
                     <p className="text-gray-600 text-lg">Hoe kan ik je helpen met verzekeringen en polisadvies?</p>
                   </div>
                 </div>
