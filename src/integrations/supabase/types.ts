@@ -158,7 +158,14 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      agent_type: "auditor" | "consultant" | "standards" | "implementer"
+      agent_type:
+        | "auditor"
+        | "consultant"
+        | "standards"
+        | "implementer"
+        | "polis_expert"
+        | "schade_specialist"
+        | "vergelijk_expert"
       message_role: "user" | "assistant"
     }
     CompositeTypes: {
@@ -287,7 +294,15 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
-      agent_type: ["auditor", "consultant", "standards", "implementer"],
+      agent_type: [
+        "auditor",
+        "consultant",
+        "standards",
+        "implementer",
+        "polis_expert",
+        "schade_specialist",
+        "vergelijk_expert",
+      ],
       message_role: ["user", "assistant"],
     },
   },
