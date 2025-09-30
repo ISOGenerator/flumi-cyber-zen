@@ -2,10 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MessageCircle, Send, Bot, Shield, Paperclip, ArrowRight, FileCheck, Users, Gavel } from "lucide-react";
 import { useState, useEffect } from "react";
-import FlumiAvatar from "@/components/FlumiAvatar";
+import PolissBuddyAvatar from "@/components/FlumiAvatar";
 const Hero = () => {
-  const questions = ["Wat zijn de GDPR compliance vereisten voor mijn bedrijf?", "Hoe implementeer ik ISO 27001 in mijn organisatie?", "Kun je mijn data breach response plan controleren?", "Welke NIS2-richtlijnen moet ik naleven?", "Hoe voer ik een cybersecurity audit uit?", "Wat zijn de nieuwe EU AI Act vereisten?", "Help me met DORA compliance voor financiële diensten", "Analyseer dit cybersecurity document voor risico's"];
-  const expertTypes = ["consultant", "auditor", "specialist"];
+  const questions = ["Wat is de dekking van mijn autoverzekering?", "Kun je mijn polisvoorwaarden uitleggen?", "Hoe kan ik mijn premie verlagen?", "Welke verzekeringen heb ik nodig voor mijn huis?", "Help me met een schademelding opstellen", "Vergelijk verschillende zorgverzekeringen voor mij", "Wat moet ik weten over aansprakelijkheidsverzekering?", "Analyseer deze polisvoorwaarden voor verborgen clausules"];
+  const expertTypes = ["adviseur", "expert", "specialist"];
   const [currentText, setCurrentText] = useState("");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
@@ -42,12 +42,12 @@ const Hero = () => {
 
     return () => clearInterval(expertTimer);
   }, [expertTypes.length]);
-  return <section className="pt-32 pb-20 relative overflow-hidden bg-gradient-to-b from-pink-50 to-white">
+    return <section className="pt-32 pb-20 relative overflow-hidden bg-gradient-to-b from-blue-50 to-white">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-pink-400/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-400/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-pink-300/8 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-accent/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/8 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -55,15 +55,15 @@ const Hero = () => {
           {/* Hero Content */}
           <div className="text-center space-y-8 max-w-5xl">
             <div className="space-y-6">
-              <Badge variant="secondary" className="bg-pink-100/80 backdrop-blur-sm text-pink-700 border border-pink-200/50 px-6 py-2 text-sm font-medium rounded-full shadow-sm">
-                🛡️ EU Cybersecurity Expert
+              <Badge variant="secondary" className="bg-primary/10 backdrop-blur-sm text-primary border border-primary/20 px-6 py-2 text-sm font-medium rounded-full shadow-sm">
+                🛡️ Verzekeringsexpert
               </Badge>
               
               <div className="flex flex-col lg:flex-row items-center justify-center space-y-6 lg:space-y-0 lg:space-x-8">
                 <h1 className="text-5xl lg:text-7xl font-semibold leading-tight text-center lg:text-left text-gray-900">
                   Maak kennis met{" "}
-                  <span className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
-                    Flumi
+                  <span className="bg-gradient-primary bg-clip-text text-transparent">
+                    PolissBuddy
                   </span>
                 </h1>
                 
@@ -71,8 +71,8 @@ const Hero = () => {
               </div>
 
               <div className="text-xl lg:text-2xl text-gray-600 leading-tight">
-                Jouw persoonlijke cybersecurity{" "}
-                <span className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent transition-all duration-500 font-semibold">
+                Jouw persoonlijke verzekering{" "}
+                <span className="bg-gradient-primary bg-clip-text text-transparent transition-all duration-500 font-semibold">
                   {expertTypes[currentExpertIndex]}
                 </span>
               </div>
@@ -84,11 +84,11 @@ const Hero = () => {
             
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-              <Button size="lg" className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all text-lg px-8 py-4 group rounded-xl">
+              <Button size="lg" className="bg-gradient-primary hover:opacity-90 text-white shadow-lg hover:shadow-xl transition-all text-lg px-8 py-4 group rounded-xl">
                 <MessageCircle className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                Start Chat met Flumi
+                Start Chat met PolissBuddy
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-4 rounded-xl group bg-white/40 backdrop-blur-sm border-2 border-pink-200/50 hover:border-pink-300/60 hover:bg-white/60 text-gray-700">
+              <Button variant="outline" size="lg" className="text-lg px-8 py-4 rounded-xl group bg-white/40 backdrop-blur-sm border-2 border-primary/20 hover:border-primary/30 hover:bg-white/60 text-gray-700">
                 Bekijk Assistenten
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
@@ -98,7 +98,7 @@ const Hero = () => {
           {/* Chat Interface Mockup */}
           <div className="relative max-w-3xl w-full mt-16">
             {/* Background behind chat interface */}
-            <div className="absolute inset-0 -m-8 bg-gradient-to-br from-pink-100/60 to-purple-100/40 rounded-3xl blur-xl"></div>
+            <div className="absolute inset-0 -m-8 bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl blur-xl"></div>
             
             <div className="relative transform rotate-1 hover:rotate-0 transition-transform duration-500 z-10">
               <div className="bg-white/40 backdrop-blur-md rounded-3xl shadow-xl overflow-hidden border border-white/30 hover:shadow-2xl transition-all duration-300">
@@ -109,32 +109,32 @@ const Hero = () => {
                     <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
                     <div className="w-3 h-3 bg-green-400 rounded-full"></div>
                   </div>
-                  <div className="text-sm font-medium text-gray-700">Flumi - EU Cybersecurity Specialist</div>
-                  <FlumiAvatar size="sm" variant="chat" />
+                  <div className="text-sm font-medium text-gray-700">PolissBuddy - Verzekeringsspecialist</div>
+                  <PolissBuddyAvatar size="sm" variant="chat" />
                 </div>
 
                 {/* Chat Content Area */}
                 <div className="p-8 bg-gradient-to-b from-white/10 to-transparent min-h-[200px]">
                   <div className="text-center mb-8">
-                    <h1 className="text-3xl font-semibold text-gray-900 mb-3">Hey, ik ben Flumi</h1>
-                    <p className="text-gray-600 text-lg">Hoe kan ik je helpen met cybersecurity en EU compliance?</p>
+                    <h1 className="text-3xl font-semibold text-gray-900 mb-3">Hey, ik ben PolissBuddy</h1>
+                    <p className="text-gray-600 text-lg">Hoe kan ik je helpen met verzekeringen en polisadvies?</p>
                   </div>
                 </div>
 
                 {/* Bottom Input Area */}
                 <div className="p-6 bg-gradient-to-b from-transparent to-white/10">
                   <div className="relative">
-                    <input type="text" value={currentText} placeholder="Stel je cybersecurity of compliance vraag..." className="w-full h-16 pl-14 pr-24 text-base bg-gray-50/50 rounded-2xl shadow-sm text-gray-900 placeholder:text-gray-400 border-2 border-transparent focus:outline-none focus:border-transparent focus:ring-2 focus:ring-pink-200 backdrop-blur-sm" style={{
-                    background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, #ec4899, #8b5cf6) border-box'
+                    <input type="text" value={currentText} placeholder="Stel je verzekering of polis vraag..." className="w-full h-16 pl-14 pr-24 text-base bg-gray-50/50 rounded-2xl shadow-sm text-gray-900 placeholder:text-gray-400 border-2 border-transparent focus:outline-none focus:border-transparent focus:ring-2 focus:ring-primary/20 backdrop-blur-sm" style={{
+                    background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, #079af7, #4fc3f7) border-box'
                   }} readOnly />
                     <div className="absolute left-5 top-1/2 transform -translate-y-1/2">
-                      <FlumiAvatar size="sm" />
+                      <PolissBuddyAvatar size="sm" />
                     </div>
                     <div className="absolute right-5 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
                       <button className="h-8 w-8 flex items-center justify-center hover:bg-white/10 rounded-lg transition-colors">
                         
                       </button>
-                      <button className="h-10 w-10 flex items-center justify-center bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 rounded-xl transition-all shadow-lg">
+                      <button className="h-10 w-10 flex items-center justify-center bg-gradient-primary hover:opacity-90 rounded-xl transition-all shadow-lg">
                         <Send className="h-4 w-4 text-white" />
                       </button>
                     </div>
